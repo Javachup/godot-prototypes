@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcp7h2onkdpx8"]
+
+[ext_resource type="Script" path="res://Scripts/conductor.gd" id="1_b0r5k"]
+
+[node name="Conductor" type="AudioStreamPlayer2D"]
+script = ExtResource("1_b0r5k")
+
+[node name="DEBUG" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5xq2an14q8mp"]
+
+[ext_resource type="PackedScene" uid="uid://dcp7h2onkdpx8" path="res://Scenes/conductor.tscn" id="1_stl1g"]
+[ext_resource type="AudioStream" uid="uid://bugown2mmsxkr" path="res://Audio/Music/Sunflower.mp3" id="2_oh7vr"]
+
+[node name="Game" type="Node"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Conductor" parent="World" instance=ExtResource("1_stl1g")]
+stream = ExtResource("2_oh7vr")
+autoplay = true
+bpm = 90
+start_delay = 1.319
