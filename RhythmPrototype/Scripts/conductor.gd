@@ -1,8 +1,6 @@
 class_name Conductor
 extends AudioStreamPlayer2D
 
-@onready var debug = $DEBUG
-
 @export var bpm := 100
 @export var beats_per_measure := 4
 @export var start_delay := 0.0
@@ -30,8 +28,6 @@ func _physics_process(delta):
 	song_beat_measure = song_beat_total % beats_per_measure
 
 	_report_beat()
-
-	debug.text = str(song_beat_total)
 
 var temp = 0.0
 func _report_beat():

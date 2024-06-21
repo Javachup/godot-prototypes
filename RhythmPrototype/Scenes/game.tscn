@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5xq2an14q8mp"]
+[gd_scene load_steps=4 format=3 uid="uid://b5xq2an14q8mp"]
 
 [ext_resource type="PackedScene" uid="uid://dcp7h2onkdpx8" path="res://Scenes/conductor.tscn" id="1_stl1g"]
 [ext_resource type="AudioStream" uid="uid://bugown2mmsxkr" path="res://Audio/Music/Sunflower.mp3" id="2_oh7vr"]
+[ext_resource type="PackedScene" uid="uid://2rgugsueee8e" path="res://Scenes/note.tscn" id="3_abtp4"]
 
 [node name="Game" type="Node"]
 
@@ -12,3 +13,9 @@ stream = ExtResource("2_oh7vr")
 autoplay = true
 bpm = 90
 start_delay = 1.319
+
+[node name="Note" parent="World" instance=ExtResource("3_abtp4")]
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+
+[connection signal="on_beat" from="World/Conductor" to="World/Note" method="_on_conductor_on_beat"]
