@@ -14,5 +14,6 @@ func _ready():
 func spawn_note():
 	var temp = note.instantiate() as Note
 	temp.path_length = curve.get_baked_length() * buttonPosition
+	temp.time_to_end = 2
 	notes.append(temp)
 	add_child(temp)
