@@ -68,15 +68,16 @@ func remove_predict_beat(index:int):
 	_predicted_beat_list.remove_at(index)
 
 func _physics_process(_delta):
-	if !playing:
-		if start_timer.is_stopped():
-			return
-		else:
-			song_time = start_timer.time_left - (start_timer.wait_time + song.start_delay)
+	# Update song time based on audio if playing or timer if running
+	# If the timer and audio are not playing, don't update anything
+	if playing:
+		song_time = get_playback_position() + AudioServer.get_time_since_last_mix() - song.start_delay
+		song_time -= AudioServer.get_output_latency()
+	elif !start_timer.is_stopped():
+		song_time = start_timer.time_left - (start_timer.wait_time + song.start_delay)
+	else:
+		return
 
-	# Update song time and beats based on the audio being played
-	song_time = get_playback_position() + AudioServer.get_time_since_last_mix() - song.start_delay
-	song_time -= AudioServer.get_output_latency()
 	song_beat_total = int(floor(song_time / seconds_per_beat))
 	song_beat_measure = song_beat_total % song.beats_per_measure
 
@@ -90,7 +91,6 @@ func _report_beat():
 		on_measure.emit(song_beat_measure)
 		_last_reported_beat = song_beat_total
 
-#
 func _predict_beat():
 	for predicted_beat in _predicted_beat_list:
 		if predicted_beat["time"] < song_time:

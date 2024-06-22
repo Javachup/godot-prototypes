@@ -1,7 +1,7 @@
 class_name Note
 extends PathFollow2D
 
-@export var speed := 200
+@export var speed := 200.0
 var time_to_end:float :
 	get:
 		if path_length < 0: printerr("path_length not set!")
