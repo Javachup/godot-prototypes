@@ -1,9 +1,22 @@
 class_name Note
 extends PathFollow2D
 
-@export_range(0, 10, .1, "or_greater") var time_to_end := 1.0
+@export var speed := 200
+var time_to_end:float :
+	get:
+		if path_length < 0: printerr("path_length not set!")
+		return path_length / speed
+	set(value):
+		if path_length < 0: printerr("path_length not set!")
+		speed = path_length / value
 
-func _ready():
-	var tween:Tween = create_tween()
-	tween.tween_property(self, "progress_ratio", 1, time_to_end)
-	tween.tween_callback(queue_free)
+var path_length:float = -1
+
+func _physics_process(delta):
+	progress += speed * delta
+
+	if (progress_ratio >= 1):
+		_end_path()
+
+func _end_path():
+	queue_free()
