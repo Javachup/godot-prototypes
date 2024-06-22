@@ -5,6 +5,7 @@ extends Path2D
 
 @export var note:PackedScene
 @export_range(0,1) var button_position := 0.9
+@export var input_name:String
 
 var notes:Array[Note] = []
 
@@ -17,3 +18,7 @@ func spawn_note():
 	temp.time_to_end = 2 #TODO: Remove this :)
 	notes.append(temp)
 	add_child(temp)
+
+func _unhandled_input(event):
+	if event.is_action_pressed(input_name):
+		print("Wow!")

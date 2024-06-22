@@ -14,10 +14,10 @@ point_count = 2
 curve = SubResource("Curve2D_io4um")
 script = ExtResource("1_pke6j")
 note = ExtResource("2_y6w3i")
+input_name = "Left"
 
 [node name="Button" type="PathFollow2D" parent="."]
 unique_name_in_owner = true
-rotates = false
 loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Button"]

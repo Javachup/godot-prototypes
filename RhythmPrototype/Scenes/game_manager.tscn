@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqarnom2n1gcd"]
+[gd_scene load_steps=7 format=3 uid="uid://cqarnom2n1gcd"]
 
 [ext_resource type="PackedScene" uid="uid://dcp7h2onkdpx8" path="res://Scenes/conductor.tscn" id="1_f83x7"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_ftohs"]
@@ -7,7 +7,13 @@
 
 [sub_resource type="Curve2D" id="Curve2D_02b7x"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -200, 0, 0, 0, 0, 0, 200, 0)
+"points": PackedVector2Array(0, 0, 0, 0, -600, 0, 0, 0, 0, 0, -200, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_llqvs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 600, 0, 0, 0, 0, 0, 200, 0)
 }
 point_count = 2
 
@@ -20,5 +26,8 @@ unique_name_in_owner = true
 
 [node name="Track" parent="." instance=ExtResource("4_078qd")]
 curve = SubResource("Curve2D_02b7x")
+
+[node name="Track2" parent="." instance=ExtResource("4_078qd")]
+curve = SubResource("Curve2D_llqvs")
 
 [connection signal="on_beat" from="Conductor" to="." method="_on_conductor_on_beat"]
