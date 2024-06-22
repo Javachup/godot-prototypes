@@ -21,11 +21,21 @@ var seconds_per_beat := 0.0
 
 var _last_reported_beat := -1
 
+func start_song(songToPlay:Song):
+	song = songToPlay
+	playing = true
+
 func stop_song():
 	song_time = 0.0
 	song_beat_total = 0
 	song_beat_measure = 0
 	stop()
+
+func get_closest_beat() -> int:
+	return roundf(song_time / seconds_per_beat)
+
+func get_time_of_beat(beat:int) -> float:
+	return beat * seconds_per_beat
 
 func _physics_process(delta):
 	if !playing:

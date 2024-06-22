@@ -5,8 +5,7 @@ extends Node2D
 @export var song:Song
 
 func _ready():
-	conductor.song = song
-	conductor.playing = true
+	conductor.start_song(song)
 
 func _on_conductor_on_beat(position):
 	print("beat")
