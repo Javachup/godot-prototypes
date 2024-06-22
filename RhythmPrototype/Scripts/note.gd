@@ -1,11 +1,9 @@
-extends Node2D
+class_name Note
+extends PathFollow2D
 
-@onready var sprite = $AnimatedSprite2D
-@onready var timer = $Timer
+@export_range(0, 10, .1, "or_greater") var time_to_end := 1.0
 
-func _on_conductor_on_beat(position):
-	sprite.frame = 1
-	timer.start()
-
-func _on_timer_timeout():
-	sprite.frame = 0
+func _ready():
+	var tween:Tween = create_tween()
+	tween.tween_property(self, "progress_ratio", 1, time_to_end)
+	tween.tween_callback(queue_free)

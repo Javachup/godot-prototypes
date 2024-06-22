@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7s5vdqu5wmry"]
+
+[ext_resource type="Script" path="res://Scripts/track.gd" id="1_pke6j"]
+[ext_resource type="PackedScene" uid="uid://2rgugsueee8e" path="res://Scenes/note.tscn" id="2_y6w3i"]
+
+[sub_resource type="Curve2D" id="Curve2D_io4um"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 200, 0)
+}
+point_count = 2
+
+[node name="Track" type="Path2D"]
+curve = SubResource("Curve2D_io4um")
+script = ExtResource("1_pke6j")
+note = ExtResource("2_y6w3i")

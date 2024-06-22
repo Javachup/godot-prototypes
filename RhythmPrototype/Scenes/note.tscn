@@ -1,31 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://2rgugsueee8e"]
+[gd_scene load_steps=3 format=3 uid="uid://2rgugsueee8e"]
 
-[ext_resource type="Script" path="res://Scripts/note.gd" id="1_7vd1b"]
-[ext_resource type="Texture2D" uid="uid://bpshqdfrwx5cy" path="res://Sprites/Square.png" id="1_48p1r"]
-[ext_resource type="Texture2D" uid="uid://dgdoctwurf1bq" path="res://Sprites/Square_Red.png" id="2_p5pwh"]
+[ext_resource type="Texture2D" uid="uid://bpshqdfrwx5cy" path="res://Sprites/Square.png" id="1_b7qfh"]
+[ext_resource type="Script" path="res://Scripts/note.gd" id="1_o0i0p"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_53n7r"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_48p1r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_p5pwh")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[node name="Note" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_o0i0p")
 
-[node name="Note" type="Node2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
-script = ExtResource("1_7vd1b")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_53n7r")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+texture = ExtResource("1_b7qfh")

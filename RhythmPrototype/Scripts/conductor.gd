@@ -32,12 +32,12 @@ func stop_song():
 	stop()
 
 func get_closest_beat() -> int:
-	return roundf(song_time / seconds_per_beat)
+	return roundi(song_time / seconds_per_beat)
 
 func get_time_of_beat(beat:int) -> float:
 	return beat * seconds_per_beat
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !playing:
 		return
 
