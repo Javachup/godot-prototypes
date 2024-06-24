@@ -8,3 +8,7 @@ extends Node2D
 func _ready():
 	conductor.add_predict_beat(track.spawn_note, 2)
 	conductor.start_song(song)
+
+
+func _on_track_note_hit(intended_beat):
+	print(intended_beat)

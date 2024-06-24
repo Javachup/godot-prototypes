@@ -1,6 +1,10 @@
 class_name Note
 extends PathFollow2D
 
+var intended_beat := 1
+
+signal on_path_end
+
 @export var speed := 200.0
 var time_to_end:float :
 	get:
@@ -12,6 +16,10 @@ var time_to_end:float :
 
 var path_length:float = -1
 
+func hit() -> int:
+	queue_free()
+	return intended_beat
+
 func _physics_process(delta):
 	progress += speed * delta
 
@@ -19,4 +27,5 @@ func _physics_process(delta):
 		_end_path()
 
 func _end_path():
+	on_path_end.emit()
 	queue_free()

@@ -29,5 +29,7 @@ curve = SubResource("Curve2D_02b7x")
 
 [node name="Track2" parent="." instance=ExtResource("4_078qd")]
 curve = SubResource("Curve2D_llqvs")
+input_name = "Right"
 
 [connection signal="on_beat" from="Conductor" to="." method="_on_conductor_on_beat"]
+[connection signal="note_hit" from="Track" to="." method="_on_track_note_hit"]
