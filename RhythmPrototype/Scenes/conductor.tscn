@@ -7,6 +7,7 @@ script = ExtResource("1_b0r5k")
 
 [node name="StartTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+process_callback = 0
 wait_time = 0.001
 one_shot = true
 

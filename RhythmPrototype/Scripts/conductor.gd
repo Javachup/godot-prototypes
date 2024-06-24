@@ -25,9 +25,13 @@ var _last_reported_beat := -1
 
 var _predicted_beat_list:Array = []
 
-func start_song(songToPlay:Song):
-	song = songToPlay
+func load_song(song_to_play:Song, beat_callbacks:Array[Callable], beat_wait_times:Array[float]):
+	song = song_to_play
 
+	for note in song.notes:
+		add_predict_beat(beat_callbacks[note.track], note.beat, beat_wait_times[note.track])
+
+func start_song():
 	var earliest_prediction_time := 0.0
 	for predicted_beat in _predicted_beat_list:
 		if predicted_beat["time"] < earliest_prediction_time:
@@ -57,11 +61,11 @@ func get_time_of_beat(beat:int) -> float:
 
 # beat_callback is called when there is time_until_beat seconds until a beat
 # After beat_callback is called, a beat will happen exactly time_until_beat seconds later
-func add_predict_beat(beat_callback:Callable, time_until_beat:float) -> int:
+func add_predict_beat(beat_callback:Callable, beat:int, time_until_beat:float) -> int:
 	if playing:
 		printerr("Trying to add prediction while playing!")
 		return -1
-	_predicted_beat_list.append({"time": -time_until_beat, "callback": beat_callback})
+	_predicted_beat_list.append({"time": get_time_of_beat(beat) - time_until_beat, "callback": beat_callback})
 	return _predicted_beat_list.size() - 1
 
 func remove_predict_beat(index:int):
@@ -74,12 +78,14 @@ func _physics_process(_delta):
 		song_time = get_playback_position() + AudioServer.get_time_since_last_mix() - song.start_delay
 		song_time -= AudioServer.get_output_latency()
 	elif !start_timer.is_stopped():
-		song_time = start_timer.time_left - (start_timer.wait_time + song.start_delay)
+		song_time = -start_timer.time_left - song.start_delay
 	else:
 		return
 
 	song_beat_total = int(floor(song_time / seconds_per_beat))
 	song_beat_measure = song_beat_total % song.beats_per_measure
+
+	print(song_time)
 
 	# Call/Emit based on the time
 	_predict_beat()
@@ -95,4 +101,4 @@ func _predict_beat():
 	for predicted_beat in _predicted_beat_list:
 		if predicted_beat["time"] < song_time:
 			predicted_beat["callback"].call()
-			predicted_beat["time"] += seconds_per_beat
+			_predicted_beat_list.erase(predicted_beat)

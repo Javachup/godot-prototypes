@@ -5,9 +5,13 @@ extends Node2D
 
 @export var song:Song
 
+var temp:Array[Callable] = []
+var temp2:Array[float] = [2.0]
+
 func _ready():
-	conductor.add_predict_beat(track.spawn_note, 2)
-	conductor.start_song(song)
+	temp.append(track.spawn_note)
+	conductor.load_song(song, temp, temp2)
+	conductor.start_song()
 
 
 func _on_track_note_hit(intended_beat):
