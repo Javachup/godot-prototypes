@@ -34,12 +34,12 @@ func load_song(song_to_load:Song, beat_callbacks:Array[Callable], beat_wait_time
 	if (song_to_load == null):
 		printerr("song_to_load is null!")
 		return
-	
+
 	song = song_to_load
 
 	if (beat_callbacks.size() != song.num_tracks): printerr("beat_callbacks should be equal to num_tracks!")
 	if (beat_wait_times.size() != song.num_tracks): printerr("beat_wait_times should be equal to num_tracks!")
-	
+
 	for note in song.notes:
 		add_predict_beat(beat_callbacks[note.track], note.beat, beat_wait_times[note.track])
 
@@ -80,7 +80,7 @@ func add_predict_beat(beat_callback:Callable, beat:int, time_until_beat:float) -
 		return -1
 	_predicted_beat_list.append({
 			"beat": beat,
-			"time": get_time_of_beat(beat) - time_until_beat, 
+			"time": get_time_of_beat(beat) - time_until_beat,
 			"callback": beat_callback
 			})
 	return _predicted_beat_list.size() - 1

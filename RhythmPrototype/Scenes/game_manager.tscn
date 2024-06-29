@@ -17,9 +17,10 @@ _data = {
 }
 point_count = 2
 
-[node name="GameManager" type="Node2D"]
+[node name="GameManager" type="Node2D" node_paths=PackedStringArray("tracks")]
 script = ExtResource("1_ftohs")
 song = ExtResource("3_c61so")
+tracks = [NodePath("Track"), NodePath("Track2")]
 
 [node name="Conductor" parent="." instance=ExtResource("1_f83x7")]
 unique_name_in_owner = true

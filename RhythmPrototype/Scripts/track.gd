@@ -27,7 +27,6 @@ func spawn_note(beat:int):
 	temp.path_length = path_length
 	temp.on_path_end.connect(_note_missed)
 
-	print(path_time)
 	temp.time_to_end = path_time
 	temp.intended_beat = beat
 
