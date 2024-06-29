@@ -5,9 +5,7 @@ extends Node2D
 
 @export var song:Song
 @export var tracks:Array[Track]
-
-var temp:Array[Callable] = []
-var temp2:Array[float] = []
+@export var eval_text:PackedScene
 
 func _ready():
 	# Load the tracks
@@ -22,8 +20,16 @@ func _ready():
 	conductor.load_song(song, spawn_note_callbacks, path_times)
 	conductor.start_song()
 
-func _on_note_hit(intended_beat):
-	score_manager.note_hit(conductor.get_time_of_beat(intended_beat), conductor.song_time)
+func _on_note_hit(track:Track, intended_beat:int):
+	var eval = score_manager.note_hit(conductor.get_time_of_beat(intended_beat), conductor.song_time)
+	_spawn_eval_text(eval, track.button_position + Vector2.UP * 50)
 
-func _on_note_missed(_intended_beat):
-	score_manager.note_missed()
+func _on_note_missed(track:Track, _intended_beat:int):
+	var eval = score_manager.note_missed()
+	_spawn_eval_text(eval, track.button_position + Vector2.UP * 50)
+
+func _spawn_eval_text(eval_string: String, spawn_pos:Vector2):
+	var temp = eval_text.instantiate()
+	temp.position = spawn_pos
+	(temp.get_child(0) as Label).text = eval_string
+	add_child(temp)

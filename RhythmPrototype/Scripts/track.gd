@@ -17,8 +17,8 @@ var button_position:Vector2 :
 
 var notes:Array[Note] = []
 
-signal note_hit(intended_beat)
-signal note_missed(intended_beat)
+signal note_hit(track:Track, intended_beat:int)
+signal note_missed(track:Track, intended_beat:int)
 
 func _ready():
 	button.progress_ratio = button_distance
@@ -36,11 +36,11 @@ func spawn_note(beat:int):
 
 func _note_missed():
 	var temp = notes.pop_back()
-	note_missed.emit(temp.intended_beat)
+	note_missed.emit(self, temp.intended_beat)
 
 func _unhandled_input(event):
 	if event.is_action_pressed(input_name):
 		var temp = notes.pop_back()
 		if temp == null:
 			return
-		note_hit.emit(temp.hit())
+		note_hit.emit(self, temp.hit())
