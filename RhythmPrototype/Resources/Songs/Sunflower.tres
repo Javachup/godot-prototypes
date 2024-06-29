@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Song" load_steps=7 format=3 uid="uid://gb62uu5fdkew"]
+[gd_resource type="Resource" script_class="Song" load_steps=8 format=3 uid="uid://gb62uu5fdkew"]
 
 [ext_resource type="Script" path="res://Scripts/note_data.gd" id="1_7mcg1"]
 [ext_resource type="Script" path="res://Scripts/song.gd" id="1_bf146"]
@@ -7,6 +7,11 @@
 [sub_resource type="Resource" id="Resource_0t4wb"]
 script = ExtResource("1_7mcg1")
 track = 0
+beat = 0
+
+[sub_resource type="Resource" id="Resource_q6xmt"]
+script = ExtResource("1_7mcg1")
+track = 1
 beat = 0
 
 [sub_resource type="Resource" id="Resource_ga8di"]
@@ -25,5 +30,5 @@ bpm = 90
 beats_per_measure = null
 start_delay = 1.319
 stream = ExtResource("1_ees60")
-num_tracks = 1
-notes = Array[ExtResource("1_7mcg1")]([SubResource("Resource_0t4wb"), SubResource("Resource_ga8di"), SubResource("Resource_2rvom")])
+num_tracks = 2
+notes = Array[ExtResource("1_7mcg1")]([SubResource("Resource_0t4wb"), SubResource("Resource_q6xmt"), SubResource("Resource_ga8di"), SubResource("Resource_2rvom")])

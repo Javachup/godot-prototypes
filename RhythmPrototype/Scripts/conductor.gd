@@ -29,6 +29,7 @@ var _predicted_beat_list:Array = []
 ## song_to_load is the song that will be loaded[br]
 ## beat_callbacks are called when the song is beat_wait_times seconds away from the target beat for a given track[br]
 ## The size of beat_callbacks and beat_wait_times should be equal to song_to_play.num_tracks
+## All beat_callbacks needs to take 1 int as an argument (for the intended beat)
 func load_song(song_to_load:Song, beat_callbacks:Array[Callable], beat_wait_times:Array[float]):
 	if (song_to_load == null):
 		printerr("song_to_load is null!")
@@ -70,8 +71,9 @@ func get_closest_beat() -> int:
 func get_time_of_beat(beat:int) -> float:
 	return beat * seconds_per_beat
 
-# beat_callback is called when there is time_until_beat seconds until a beat
-# After beat_callback is called, a beat will happen exactly time_until_beat seconds later
+## beat_callback is called when there is time_until_beat seconds until a beat
+## After beat_callback is called, a beat will happen exactly time_until_beat seconds later
+## beat_callback needs to take 1 int as an argument (for the intended beat)
 func add_predict_beat(beat_callback:Callable, beat:int, time_until_beat:float) -> int:
 	if playing:
 		printerr("Trying to add prediction while playing!")
