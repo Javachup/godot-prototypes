@@ -4,15 +4,16 @@ extends Path2D
 @onready var button = %Button
 
 @export var note:PackedScene
-@export_range(0,1) var button_position := 0.9
+@export_range(0,1) var button_distance := 0.9
 @export var input_name:String
 @export var note_speed := 200.0
 
 var path_length:float :
-	get: return curve.get_baked_length() * button_position
-
+	get: return curve.get_baked_length() * button_distance
 var path_time:float :
 	get: return path_length / note_speed
+var button_position:Vector2 :
+	get: return curve.sample_baked(path_length)
 
 var notes:Array[Note] = []
 
@@ -20,7 +21,7 @@ signal note_hit(intended_beat)
 signal note_missed(intended_beat)
 
 func _ready():
-	button.progress_ratio = button_position
+	button.progress_ratio = button_distance
 
 func spawn_note(beat:int):
 	var temp = note.instantiate() as Note
