@@ -25,9 +25,20 @@ var _last_reported_beat := -1
 
 var _predicted_beat_list:Array = []
 
-func load_song(song_to_play:Song, beat_callbacks:Array[Callable], beat_wait_times:Array[float]):
-	song = song_to_play
+## Loads a song (song will not play until start_song is called)[br]
+## song_to_load is the song that will be loaded[br]
+## beat_callbacks are called when the song is beat_wait_times seconds away from the target beat for a given track[br]
+## The size of beat_callbacks and beat_wait_times should be equal to song_to_play.num_tracks
+func load_song(song_to_load:Song, beat_callbacks:Array[Callable], beat_wait_times:Array[float]):
+	if (song_to_load == null):
+		printerr("song_to_load is null!")
+		return
+	
+	song = song_to_load
 
+	if (beat_callbacks.size() != song.num_tracks): printerr("beat_callbacks should be equal to num_tracks!")
+	if (beat_wait_times.size() != song.num_tracks): printerr("beat_wait_times should be equal to num_tracks!")
+	
 	for note in song.notes:
 		add_predict_beat(beat_callbacks[note.track], note.beat, beat_wait_times[note.track])
 
@@ -65,7 +76,11 @@ func add_predict_beat(beat_callback:Callable, beat:int, time_until_beat:float) -
 	if playing:
 		printerr("Trying to add prediction while playing!")
 		return -1
-	_predicted_beat_list.append({"time": get_time_of_beat(beat) - time_until_beat, "callback": beat_callback})
+	_predicted_beat_list.append({
+			"beat": beat,
+			"time": get_time_of_beat(beat) - time_until_beat, 
+			"callback": beat_callback
+			})
 	return _predicted_beat_list.size() - 1
 
 func remove_predict_beat(index:int):
@@ -85,8 +100,6 @@ func _physics_process(_delta):
 	song_beat_total = int(floor(song_time / seconds_per_beat))
 	song_beat_measure = song_beat_total % song.beats_per_measure
 
-	print(song_time)
-
 	# Call/Emit based on the time
 	_predict_beat()
 	_report_beat()
@@ -100,5 +113,5 @@ func _report_beat():
 func _predict_beat():
 	for predicted_beat in _predicted_beat_list:
 		if predicted_beat["time"] < song_time:
-			predicted_beat["callback"].call()
+			predicted_beat["callback"].call(predicted_beat["beat"])
 			_predicted_beat_list.erase(predicted_beat)
