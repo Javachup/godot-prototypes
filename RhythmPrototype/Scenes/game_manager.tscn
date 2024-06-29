@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dcp7h2onkdpx8" path="res://Scenes/conductor.tscn" id="1_f83x7"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_ftohs"]
-[ext_resource type="Script" path="res://Scripts/score_manager.gd" id="3_0g6qs"]
+[ext_resource type="Script" path="res://Scripts/score_manager.gd" id="3_bd6ix"]
 [ext_resource type="Resource" uid="uid://gb62uu5fdkew" path="res://Resources/Songs/Sunflower.tres" id="3_c61so"]
 [ext_resource type="PackedScene" uid="uid://b7s5vdqu5wmry" path="res://Scenes/track.tscn" id="4_078qd"]
 
@@ -25,7 +25,7 @@ tracks = [NodePath("Track"), NodePath("Track2")]
 
 [node name="ScoreManager" type="Node2D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("3_0g6qs")
+script = ExtResource("3_bd6ix")
 
 [node name="Conductor" parent="." instance=ExtResource("1_f83x7")]
 unique_name_in_owner = true
@@ -36,5 +36,3 @@ curve = SubResource("Curve2D_02b7x")
 [node name="Track2" parent="." instance=ExtResource("4_078qd")]
 curve = SubResource("Curve2D_llqvs")
 input_name = "Right"
-
-[connection signal="on_beat" from="Conductor" to="." method="_on_conductor_on_beat"]
