@@ -23,7 +23,7 @@ func _ready():
 	conductor.start_song()
 
 func _on_note_hit(intended_beat):
-	score_manager.note_hit()
+	score_manager.note_hit(conductor.get_time_of_beat(intended_beat), conductor.song_time)
 
 func _on_note_missed(intended_beat):
 	score_manager.note_missed()
