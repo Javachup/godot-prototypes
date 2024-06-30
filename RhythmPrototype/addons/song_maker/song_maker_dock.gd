@@ -1,8 +1,11 @@
 @tool
 extends Control
 
-var track_names:Array[TrackName]
-var track_data:Array[TrackData]
+const TRACK_DATA_SCENE := preload("res://addons/song_maker/track_data.tscn")
+const TRACK_NAME_SCENE := preload("res://addons/song_maker/track_name.tscn")
+
+var track_names:Array[TrackName] = []
+var track_data:Array[TrackData] = []
 
 @onready var track_names_parent = %TrackNames
 @onready var track_data_parent = %TrackData
@@ -13,27 +16,9 @@ var track_data:Array[TrackData]
 @onready var bpm_edit = %BPM
 @onready var start_delay_edit = %StartDelay
 
-@onready var test_track = $VBoxContainer/HSplitContainer/ScrollContainer/TrackData/Track
-
-
 var song:Song
 
 func _ready():
-	# Register the already existing nodes
-	for child in track_names_parent.get_children():
-		track_names.append(child)
-	for child in track_data_parent.get_children():
-		track_data.append(child)
-	# Error check
-	if track_data.size() != track_names.size():
-		printerr("Tracks do not align!")
-
-	# Make sure the sizes line up
-	for i in track_data.size():
-		var size = max(track_names[i].size.y, track_data[i].size.y)
-		track_names[i].custom_minimum_size.y = size
-		track_data[i].custom_minimum_size.y = size
-
 	# Set up file dialogue
 	file_dialog.current_dir = "res://Resources/Songs"
 	file_dialog.add_filter("*.tres", "Song Resources")
@@ -61,7 +46,39 @@ func _on_file_dialog_file_selected(path):
 	bpm_edit.text = str(song.bpm)
 	start_delay_edit.text = str(song.start_delay)
 
-	# Set up the beats for each track
-	test_track.total_beats = int(floor((song.stream.get_length() - song.start_delay) * song.bpm / 60))
-	test_track.beats_per_measure = song.beats_per_measure
-	test_track.update_beats()
+	# Create and update every track
+	update_tracks()
+
+func update_tracks():
+	if song == null:
+		printerr("Trying to update tracks with no song!")
+		return
+
+	# Clear old tracks
+	for item in track_names:
+		item.free()
+	track_names.clear()
+	for item in track_data:
+		item.free()
+	track_data.clear()
+
+	# Add tracks
+	for i in song.track_names.size():
+		# Create the track name
+		var track_name = TRACK_NAME_SCENE.instantiate()
+		track_name.text = song.track_names[i]
+		track_names_parent.add_child(track_name)
+		track_names.append(track_name)
+
+		# Create the track data
+		var track_datum = TRACK_DATA_SCENE.instantiate()
+		track_data_parent.add_child(track_datum)
+		track_datum.total_beats = int(floor((song.stream.get_length() - song.start_delay) * song.bpm / 60))
+		track_datum.beats_per_measure = song.beats_per_measure
+		track_datum.update_beats()
+		track_data.append(track_datum)
+
+		# Make sure sizes line up
+		var size = max(track_name.size.y, track_datum.size.y)
+		track_name.custom_minimum_size.y = size
+		track_datum.custom_minimum_size.y = size

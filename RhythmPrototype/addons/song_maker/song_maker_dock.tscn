@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwdi83m5gmqon"]
+[gd_scene load_steps=2 format=3 uid="uid://dwdi83m5gmqon"]
 
 [ext_resource type="Script" path="res://addons/song_maker/song_maker_dock.gd" id="1_j60fo"]
-[ext_resource type="PackedScene" uid="uid://1c02njcyq7ql" path="res://addons/song_maker/track_name.tscn" id="2_hcaoj"]
-[ext_resource type="PackedScene" uid="uid://xbu3137iaunq" path="res://addons/song_maker/track_data.tscn" id="2_jpyfv"]
 
 [node name="SongMakerDock" type="Control"]
 layout_mode = 3
@@ -86,22 +84,6 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Track" parent="VBoxContainer/HSplitContainer/TrackNames" instance=ExtResource("2_hcaoj")]
-custom_minimum_size = Vector2(0, 31)
-layout_mode = 2
-
-[node name="Track2" parent="VBoxContainer/HSplitContainer/TrackNames" instance=ExtResource("2_hcaoj")]
-custom_minimum_size = Vector2(0, 31)
-layout_mode = 2
-
-[node name="Track3" parent="VBoxContainer/HSplitContainer/TrackNames" instance=ExtResource("2_hcaoj")]
-custom_minimum_size = Vector2(0, 31)
-layout_mode = 2
-
-[node name="Track4" parent="VBoxContainer/HSplitContainer/TrackNames" instance=ExtResource("2_hcaoj")]
-custom_minimum_size = Vector2(0, 31)
-layout_mode = 2
-
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HSplitContainer"]
 layout_mode = 2
 horizontal_scroll_mode = 2
@@ -109,22 +91,6 @@ vertical_scroll_mode = 0
 
 [node name="TrackData" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/ScrollContainer"]
 unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Track" parent="VBoxContainer/HSplitContainer/ScrollContainer/TrackData" instance=ExtResource("2_jpyfv")]
-custom_minimum_size = Vector2(0, 31)
-layout_mode = 2
-
-[node name="Track2" parent="VBoxContainer/HSplitContainer/ScrollContainer/TrackData" instance=ExtResource("2_jpyfv")]
-custom_minimum_size = Vector2(0, 31)
-layout_mode = 2
-
-[node name="Track3" parent="VBoxContainer/HSplitContainer/ScrollContainer/TrackData" instance=ExtResource("2_jpyfv")]
-custom_minimum_size = Vector2(0, 31)
-layout_mode = 2
-
-[node name="Track4" parent="VBoxContainer/HSplitContainer/ScrollContainer/TrackData" instance=ExtResource("2_jpyfv")]
-custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
 [node name="SaveButton" type="Button" parent="VBoxContainer"]
@@ -138,7 +104,7 @@ initial_position = 2
 size = Vector2i(627, 349)
 ok_button_text = "Open"
 file_mode = 0
-filters = PackedStringArray("*.tres ; Song Resources", "*.tres ; Song Resources", "*.tres ; Song Resources")
+filters = PackedStringArray("*.tres ; Song Resources", "*.tres ; Song Resources", "*.tres ; Song Resources", "*.tres ; Song Resources")
 
 [connection signal="pressed" from="VBoxContainer/LoadSong" to="." method="_on_load_song_pressed"]
 [connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]

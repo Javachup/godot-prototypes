@@ -31,5 +31,5 @@ bpm = 90
 beats_per_measure = 4
 start_delay = 1.319
 stream = ExtResource("1_ees60")
-num_tracks = 2
+track_names = Array[String](["Track 1", "Track 2"])
 notes = Array[ExtResource("1_7mcg1")]([SubResource("Resource_0t4wb"), SubResource("Resource_q6xmt"), SubResource("Resource_ga8di"), SubResource("Resource_2rvom")])

@@ -7,6 +7,8 @@ extends Resource
 @export var start_delay := 0.0
 @export var stream:AudioStream
 
-@export var num_tracks := 2
+@export var track_names:Array[String]
+var num_tracks:int :
+	get: return track_names.size()
 
 @export var notes:Array[NoteData] = []
