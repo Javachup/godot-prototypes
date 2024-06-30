@@ -26,8 +26,9 @@ beat = 3
 
 [resource]
 script = ExtResource("1_bf146")
+name = "Sunflower"
 bpm = 90
-beats_per_measure = null
+beats_per_measure = 4
 start_delay = 1.319
 stream = ExtResource("1_ees60")
 num_tracks = 2
