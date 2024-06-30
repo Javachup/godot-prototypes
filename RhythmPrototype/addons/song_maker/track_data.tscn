@@ -5,47 +5,6 @@
 [node name="Track" type="PanelContainer"]
 script = ExtResource("1_bxi6m")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="CheckBox" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox2" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox3" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox4" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox5" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox6" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox7" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox8" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox9" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox10" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox11" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="CheckBox12" type="CheckBox" parent="HBoxContainer"]
+[node name="BeatContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 2

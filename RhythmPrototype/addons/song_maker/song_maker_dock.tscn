@@ -36,7 +36,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Song Name:"
 
-[node name="SongNameEdit" type="LineEdit" parent="VBoxContainer/SongInfo/SongName"]
+[node name="SongName" type="LineEdit" parent="VBoxContainer/SongInfo/SongName"]
 unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "Song Name"
@@ -49,7 +49,8 @@ layout_mode = 2
 layout_mode = 2
 text = "Beats per Mesure:"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/SongInfo/MeasureBeats"]
+[node name="MeasureBeats" type="LineEdit" parent="VBoxContainer/SongInfo/MeasureBeats"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "4"
 placeholder_text = "4"
@@ -61,9 +62,22 @@ layout_mode = 2
 layout_mode = 2
 text = "BPM:"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/SongInfo/BPM"]
+[node name="BPM" type="LineEdit" parent="VBoxContainer/SongInfo/BPM"]
+unique_name_in_owner = true
 layout_mode = 2
-placeholder_text = "90"
+placeholder_text = "120"
+
+[node name="StartDelay" type="HBoxContainer" parent="VBoxContainer/SongInfo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SongInfo/StartDelay"]
+layout_mode = 2
+text = "Start Delay:"
+
+[node name="StartDelay" type="LineEdit" parent="VBoxContainer/SongInfo/StartDelay"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "120"
 
 [node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -73,15 +87,19 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Track" parent="VBoxContainer/HSplitContainer/TrackNames" instance=ExtResource("2_hcaoj")]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
 [node name="Track2" parent="VBoxContainer/HSplitContainer/TrackNames" instance=ExtResource("2_hcaoj")]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
 [node name="Track3" parent="VBoxContainer/HSplitContainer/TrackNames" instance=ExtResource("2_hcaoj")]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
 [node name="Track4" parent="VBoxContainer/HSplitContainer/TrackNames" instance=ExtResource("2_hcaoj")]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HSplitContainer"]
@@ -94,15 +112,19 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Track" parent="VBoxContainer/HSplitContainer/ScrollContainer/TrackData" instance=ExtResource("2_jpyfv")]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
 [node name="Track2" parent="VBoxContainer/HSplitContainer/ScrollContainer/TrackData" instance=ExtResource("2_jpyfv")]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
 [node name="Track3" parent="VBoxContainer/HSplitContainer/ScrollContainer/TrackData" instance=ExtResource("2_jpyfv")]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
 [node name="Track4" parent="VBoxContainer/HSplitContainer/ScrollContainer/TrackData" instance=ExtResource("2_jpyfv")]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
 [node name="SaveButton" type="Button" parent="VBoxContainer"]
@@ -111,11 +133,12 @@ text = "Save"
 
 [node name="FileDialog" type="FileDialog" parent="."]
 unique_name_in_owner = true
-title = "Open a Song"
+title = "Open a File"
 initial_position = 2
 size = Vector2i(627, 349)
 ok_button_text = "Open"
 file_mode = 0
+filters = PackedStringArray("*.tres ; Song Resources", "*.tres ; Song Resources", "*.tres ; Song Resources")
 
 [connection signal="pressed" from="VBoxContainer/LoadSong" to="." method="_on_load_song_pressed"]
 [connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
