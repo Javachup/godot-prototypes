@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://1c02njcyq7ql"]
+
+[ext_resource type="Script" path="res://addons/song_maker/track_name.gd" id="1_rfrjx"]
+
+[node name="Track" type="LineEdit"]
+text = "Track"
+script = ExtResource("1_rfrjx")
