@@ -97,15 +97,23 @@ layout_mode = 2
 layout_mode = 2
 text = "Save"
 
-[node name="FileDialog" type="FileDialog" parent="."]
+[node name="LoadFileDialog" type="FileDialog" parent="."]
 unique_name_in_owner = true
 title = "Open a File"
 initial_position = 2
 size = Vector2i(627, 349)
 ok_button_text = "Open"
 file_mode = 0
-filters = PackedStringArray("*.tres ; Song Resources", "*.tres ; Song Resources", "*.tres ; Song Resources", "*.tres ; Song Resources", "*.tres ; Song Resources")
+filters = PackedStringArray("*.tres ; Song Resources")
+
+[node name="SaveFileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+initial_position = 2
+size = Vector2i(627, 349)
+ok_button_text = "Save"
+filters = PackedStringArray("*.tres ; Song Resources")
 
 [connection signal="pressed" from="VBoxContainer/LoadSong" to="." method="_on_load_song_pressed"]
 [connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
-[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="file_selected" from="LoadFileDialog" to="." method="_on_load_file_dialog_file_selected"]
+[connection signal="file_selected" from="SaveFileDialog" to="." method="_on_save_file_dialog_file_selected"]

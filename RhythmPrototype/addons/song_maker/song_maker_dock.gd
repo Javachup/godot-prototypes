@@ -10,7 +10,9 @@ var track_data:Array[TrackData] = []
 @onready var track_names_parent = %TrackNames
 @onready var track_data_parent = %TrackData
 
-@onready var file_dialog = %FileDialog
+@onready var save_file_dialog = %SaveFileDialog
+@onready var load_file_dialog = %LoadFileDialog
+
 @onready var song_name_edit = %SongName
 @onready var measure_beats_edit = %MeasureBeats
 @onready var bpm_edit = %BPM
@@ -20,18 +22,27 @@ var song:Song
 
 func _ready():
 	# Set up file dialogue
-	file_dialog.current_dir = "res://Resources/Songs"
-	file_dialog.add_filter("*.tres", "Song Resources")
+	load_file_dialog.current_dir = "res://Resources/Songs"
+	save_file_dialog.current_dir = "res://Resources/Songs"
 
 func _on_save_button_pressed():
-	save()
+	save_file_dialog.popup()
+
+func _on_save_file_dialog_file_selected(path):
+	save_song(path)
 
 func _on_load_song_pressed():
-	file_dialog.popup()
+	load_file_dialog.popup()
 
-func _on_file_dialog_file_selected(path):
+func _on_load_file_dialog_file_selected(path):
+	load_song(path)
+
+func save_song(path):
+	print("Save!")
+
+func load_song(path):
 	# Load song plus some error checks
-	var temp = load(path)
+	var temp = ResourceLoader.load(path, "Song").duplicate(true)
 	if !(temp is Song):
 		printerr("File must be a song resource!")
 		return
@@ -45,9 +56,6 @@ func _on_file_dialog_file_selected(path):
 
 	# Create and update every track
 	update_tracks()
-
-func save():
-	print("Save!")
 
 func update_tracks():
 	if song == null:
@@ -86,3 +94,4 @@ func update_tracks():
 	# Fill in Note info
 	for note in song.notes:
 		track_data[note.track].beat_checkboxs[note.beat].button_pressed = true
+
