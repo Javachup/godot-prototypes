@@ -10,7 +10,6 @@ var track_data:Array[TrackData] = []
 @onready var track_names_parent = %TrackNames
 @onready var track_data_parent = %TrackData
 
-@onready var save_file_dialog = %SaveFileDialog
 @onready var load_file_dialog = %LoadFileDialog
 
 @onready var song_name_edit = %SongName
@@ -23,14 +22,9 @@ var song:Song
 func _ready():
 	# Set up file dialogue
 	load_file_dialog.current_dir = "res://Resources/Songs"
-	save_file_dialog.current_dir = "res://Resources/Songs"
 
 func _on_save_button_pressed():
 	save_song()
-
-func _on_save_file_dialog_file_selected(path):
-	#save_song(path)
-	pass
 
 func _on_load_song_pressed():
 	load_file_dialog.popup()
@@ -41,6 +35,11 @@ func _on_load_file_dialog_file_selected(path):
 func save_song():
 	# Get note info
 	save_tracks()
+
+	song.name = song_name_edit.text
+	song.beats_per_measure = int(measure_beats_edit.text)
+	song.bpm = int(bpm_edit.text)
+	song.start_delay = float(start_delay_edit.text)
 
 func load_song(path):
 	# Load song plus some error checks
@@ -72,6 +71,10 @@ func save_tracks():
 				note.track = track_index
 				note.beat = beat_index
 				song.notes.append(note)
+
+	song.track_names.clear()
+	for track_edit in track_names_parent.get_children():
+		song.track_names.append(track_edit.text)
 
 func update_tracks():
 	if song == null:
