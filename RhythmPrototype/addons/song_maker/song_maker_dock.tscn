@@ -104,7 +104,7 @@ initial_position = 2
 size = Vector2i(627, 349)
 ok_button_text = "Open"
 file_mode = 0
-filters = PackedStringArray("*.tres ; Song Resources", "*.tres ; Song Resources", "*.tres ; Song Resources", "*.tres ; Song Resources")
+filters = PackedStringArray("*.tres ; Song Resources", "*.tres ; Song Resources", "*.tres ; Song Resources", "*.tres ; Song Resources", "*.tres ; Song Resources")
 
 [connection signal="pressed" from="VBoxContainer/LoadSong" to="." method="_on_load_song_pressed"]
 [connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]

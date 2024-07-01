@@ -26,9 +26,6 @@ func _ready():
 func _on_save_button_pressed():
 	save()
 
-func save():
-	print("Save!")
-
 func _on_load_song_pressed():
 	file_dialog.popup()
 
@@ -48,6 +45,9 @@ func _on_file_dialog_file_selected(path):
 
 	# Create and update every track
 	update_tracks()
+
+func save():
+	print("Save!")
 
 func update_tracks():
 	if song == null:
@@ -82,3 +82,7 @@ func update_tracks():
 		var size = max(track_name.size.y, track_datum.size.y)
 		track_name.custom_minimum_size.y = size
 		track_datum.custom_minimum_size.y = size
+
+	# Fill in Note info
+	for note in song.notes:
+		track_data[note.track].beat_checkboxs[note.beat].button_pressed = true
