@@ -38,7 +38,13 @@ func _on_load_file_dialog_file_selected(path):
 	load_song(path)
 
 func save_song(path):
-	print("Save!")
+	# Get note info
+	save_tracks()
+
+	print(path)
+	for note in song.notes: print(str(note.track) + ", " + str(note.beat))
+	var err = ResourceSaver.save(song, path, ResourceSaver.FLAG_CHANGE_PATH)
+	print(err)
 
 func load_song(path):
 	# Load song plus some error checks
@@ -56,6 +62,20 @@ func load_song(path):
 
 	# Create and update every track
 	update_tracks()
+
+func save_tracks():
+	if song == null:
+		printerr("Trying to save tracks with no song!")
+		return
+
+	song.notes.clear()
+	for track_index in track_data.size():
+		for beat_index in track_data[track_index].beat_checkboxs.size():
+			if track_data[track_index].beat_checkboxs[beat_index].button_pressed:
+				var note = NoteData.new()
+				note.track = track_index
+				note.beat = beat_index
+				song.notes.append(note)
 
 func update_tracks():
 	if song == null:
@@ -94,4 +114,3 @@ func update_tracks():
 	# Fill in Note info
 	for note in song.notes:
 		track_data[note.track].beat_checkboxs[note.beat].button_pressed = true
-
