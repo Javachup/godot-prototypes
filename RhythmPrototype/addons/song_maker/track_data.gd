@@ -19,8 +19,12 @@ func update_beats():
 		if i > 0 and i % beats_per_measure == 0:
 			var line = VSeparator.new()
 			beat_container.add_child(line)
+			var label = Label.new()
+			label.text = str(i)
+			beat_container.add_child(label)
 
 		# Add a checkbox for the beat
 		var checkbox = CheckBox.new()
+		checkbox.tooltip_text = str(i)
 		beat_checkboxs.append(checkbox)
 		beat_container.add_child(checkbox)
