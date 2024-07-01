@@ -28,6 +28,9 @@ func _on_note_hit(track:Track, intended_beat:int):
 	var eval = score_manager.note_hit(conductor.get_time_of_beat(intended_beat), conductor.song_time)
 	_spawn_eval_text(eval, track.button_position + Vector2.UP * 50)
 
+	if eval != score_manager.missed_message:
+		track.hit_next_note()
+
 func _on_note_missed(track:Track, _intended_beat:int):
 	var eval = score_manager.note_missed()
 	_spawn_eval_text(eval, track.button_position + Vector2.UP * 50)
