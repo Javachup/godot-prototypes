@@ -45,8 +45,11 @@ func load_song(song_to_load:Song, beat_callbacks:Array[Callable], beat_wait_time
 
 func start_song(start_time = 0):
 	if start_time > 0:
-		seek(start_time)
 		playing = true
+		seek(start_time)
+		for predicted_beat in _predicted_beat_list:
+			if predicted_beat["time"] < start_time:
+				_predicted_beat_list.erase(predicted_beat)
 		return
 
 	var earliest_prediction_time := 0.0
