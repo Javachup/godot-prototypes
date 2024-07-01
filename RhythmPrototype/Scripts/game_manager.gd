@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var conductor = %Conductor
 @onready var score_manager = %ScoreManager
+@onready var label = $Label
 
 @export var song:Song
 @export var tracks:Array[Track]
@@ -19,6 +20,9 @@ func _ready():
 
 	conductor.load_song(song, spawn_note_callbacks, path_times)
 	conductor.start_song()
+
+func _process(delta):
+	label.text = "Beat: %d\nTime: %.2f" % [conductor.song_beat_total, conductor.song_time]
 
 func _on_note_hit(track:Track, intended_beat:int):
 	var eval = score_manager.note_hit(conductor.get_time_of_beat(intended_beat), conductor.song_time)

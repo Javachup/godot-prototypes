@@ -43,7 +43,12 @@ func load_song(song_to_load:Song, beat_callbacks:Array[Callable], beat_wait_time
 	for note in song.notes:
 		add_predict_beat(beat_callbacks[note.track], note.beat, beat_wait_times[note.track])
 
-func start_song():
+func start_song(start_time = 0):
+	if start_time > 0:
+		seek(start_time)
+		playing = true
+		return
+
 	var earliest_prediction_time := 0.0
 	for predicted_beat in _predicted_beat_list:
 		if predicted_beat["time"] < earliest_prediction_time:

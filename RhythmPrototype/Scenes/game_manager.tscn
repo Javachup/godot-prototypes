@@ -38,3 +38,10 @@ curve = SubResource("Curve2D_02b7x")
 [node name="Track2" parent="." instance=ExtResource("4_078qd")]
 curve = SubResource("Curve2D_llqvs")
 input_name = "Right"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -461.0
+offset_top = -234.0
+offset_right = -417.0
+offset_bottom = -211.0
+text = "Beat: "
