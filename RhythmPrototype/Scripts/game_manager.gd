@@ -19,7 +19,7 @@ func _ready():
 		track.note_missed.connect(_on_note_missed)
 
 	conductor.load_song(song, spawn_note_callbacks, path_times)
-	conductor.start_song(conductor.get_time_of_beat(192))
+	conductor.start_song(conductor.get_time_of_beat(0))
 
 func _process(delta):
 	label.text = "Beat: %d\nTime: %.2f" % [conductor.song_beat_total, conductor.song_time]
