@@ -26,10 +26,11 @@ func _ready():
 	save_file_dialog.current_dir = "res://Resources/Songs"
 
 func _on_save_button_pressed():
-	save_file_dialog.popup()
+	save_song()
 
 func _on_save_file_dialog_file_selected(path):
-	save_song(path)
+	#save_song(path)
+	pass
 
 func _on_load_song_pressed():
 	load_file_dialog.popup()
@@ -37,18 +38,13 @@ func _on_load_song_pressed():
 func _on_load_file_dialog_file_selected(path):
 	load_song(path)
 
-func save_song(path):
+func save_song():
 	# Get note info
 	save_tracks()
 
-	print(path)
-	for note in song.notes: print(str(note.track) + ", " + str(note.beat))
-	var err = ResourceSaver.save(song, path, ResourceSaver.FLAG_CHANGE_PATH)
-	print(err)
-
 func load_song(path):
 	# Load song plus some error checks
-	var temp = ResourceLoader.load(path, "Song").duplicate(true)
+	var temp = ResourceLoader.load(path, "Song")
 	if !(temp is Song):
 		printerr("File must be a song resource!")
 		return
