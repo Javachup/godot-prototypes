@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://c2ctkn607dha0"]
+[gd_scene load_steps=3 format=3 uid="uid://c2ctkn607dha0"]
+
+[ext_resource type="Script" path="res://objects/snake.gd" id="1_pwq0j"]
+
+[sub_resource type="Curve" id="Curve_3ob7n"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Snake" type="Line2D"]
+width_curve = SubResource("Curve_3ob7n")
+script = ExtResource("1_pwq0j")
+snake_length = 25
+segment_length = 10.0
