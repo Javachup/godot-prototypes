@@ -8,6 +8,8 @@ shader = ExtResource("1_8a1h6")
 shader_parameter/effect_color = Color(1, 0.666667, 0, 1)
 shader_parameter/effect_amount = 1.0
 shader_parameter/uv_scale = 2.105
+shader_parameter/wobble_amp = 0.3
+shader_parameter/wobble_speed = 0.1
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_htadf"]
 noise_type = 3
@@ -18,8 +20,8 @@ fractal_lacunarity = 1.815
 seamless = true
 noise = SubResource("FastNoiseLite_htadf")
 
-[sub_resource type="Curve" id="Curve_cfykq"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.663158, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_qed6x"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.705263, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [node name="Splash" type="Polygon2D"]
@@ -29,5 +31,5 @@ texture = SubResource("NoiseTexture2D_2yonn")
 polygon = PackedVector2Array(100, -100, -100, -100, -100, 100, 100, 100)
 uv = PackedVector2Array(512, -7.62939e-06, 0, 7.62939e-06, 0, 512, 512, 512)
 script = ExtResource("2_fm0xy")
-speed = 0.745
-curve = SubResource("Curve_cfykq")
+effect_length = 2.0
+effect_curve = SubResource("Curve_qed6x")
