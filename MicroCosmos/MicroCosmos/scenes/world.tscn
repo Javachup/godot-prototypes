@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpa3eudmxus6m"]
+[gd_scene load_steps=3 format=3 uid="uid://bpa3eudmxus6m"]
 
 [ext_resource type="PackedScene" uid="uid://c2ctkn607dha0" path="res://objects/snake.tscn" id="1_5mnyq"]
+[ext_resource type="PackedScene" uid="uid://c0c6b3cvngc6o" path="res://objects/splash.tscn" id="2_holhl"]
 
 [node name="World" type="Node2D"]
 
 [node name="Snake" parent="." instance=ExtResource("1_5mnyq")]
+
+[node name="Splash" parent="." instance=ExtResource("2_holhl")]
