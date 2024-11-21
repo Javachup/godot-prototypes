@@ -11,7 +11,11 @@ bounce = 0.2
 radius = 100.0
 
 [node name="Fruit" type="RigidBody2D" node_paths=PackedStringArray("sprite")]
+collision_layer = 2
+collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_2kxi5")
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_u8dx8")
 fruit = ExtResource("2_sylgm")
 sprite = NodePath("Art/Sprite2D")
@@ -24,3 +28,5 @@ shape = SubResource("CircleShape2D_y4mjb")
 [node name="Sprite2D" type="Sprite2D" parent="Art"]
 scale = Vector2(0.78, 0.78)
 texture = ExtResource("2_xrqp1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -15,6 +15,11 @@ run/main_scene="res://Scenes/root.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[layer_names]
+
+2d_physics/layer_1="Level"
+2d_physics/layer_2="Fruit"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
