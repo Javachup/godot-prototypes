@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Fruit" load_steps=2 format=3 uid="uid://wudh1yi6fo0r"]
+
+[ext_resource type="Script" path="res://Objects/Fruit/fruit.gd" id="1_yd30d"]
+
+[resource]
+script = ExtResource("1_yd30d")
+name = "Peach"
+color = Color(0.9, 0.666, 0.7791, 1)
+radius = 70.0

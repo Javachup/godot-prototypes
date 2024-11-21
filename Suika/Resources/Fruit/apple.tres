@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Fruit" load_steps=3 format=3 uid="uid://dodvb42yplk7u"]
+
+[ext_resource type="Resource" uid="uid://bsi27egn3j3ls" path="res://Resources/Fruit/orange.tres" id="1_77bxk"]
+[ext_resource type="Script" path="res://Objects/Fruit/fruit.gd" id="1_l4uaf"]
+
+[resource]
+script = ExtResource("1_l4uaf")
+name = "Apple"
+color = Color(0.96, 0.1152, 0.12928, 1)
+radius = 50.0
+merge_into = ExtResource("1_77bxk")

@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Fruit" load_steps=2 format=3 uid="uid://b1kxuambvyhg7"]
+[gd_resource type="Resource" script_class="Fruit" load_steps=3 format=3 uid="uid://dr8y6kycq5vlw"]
 
 [ext_resource type="Script" path="res://Objects/Fruit/fruit.gd" id="1_02752"]
+[ext_resource type="Resource" uid="uid://d302d0umqw3hq" path="res://Resources/Fruit/blueberry.tres" id="1_ejiix"]
 
 [resource]
 script = ExtResource("1_02752")
 name = "Strawberry"
 color = Color(0.992157, 0, 0.223529, 1)
-radius = 30.0
+radius = 20.0
+merge_into = ExtResource("1_ejiix")
