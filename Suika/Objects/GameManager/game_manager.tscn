@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://crshusn2suy7s"]
+
+[ext_resource type="Script" path="res://Objects/GameManager/game_manager.gd" id="1_lqurp"]
+[ext_resource type="PackedScene" uid="uid://bbvldcx61sn3r" path="res://Objects/GameManager/Bucket/bucket.tscn" id="1_wo045"]
+[ext_resource type="PackedScene" uid="uid://chwion8v1la63" path="res://Objects/GameManager/Cursor/cursor.tscn" id="2_rlhhv"]
+[ext_resource type="PackedScene" uid="uid://pxq35cuej5oh" path="res://Objects/Fruit/fruit_obj.tscn" id="2_wnfrh"]
+[ext_resource type="Resource" uid="uid://d302d0umqw3hq" path="res://Resources/Fruit/blueberry.tres" id="3_7d4so"]
+
+[node name="GameManager" type="Node2D" node_paths=PackedStringArray("cursor", "left_bounds", "right_bounds", "fruit_parent")]
+script = ExtResource("1_lqurp")
+cursor = NodePath("Cursor")
+left_bounds = NodePath("CursorBounds/Left")
+right_bounds = NodePath("CursorBounds/Right")
+fruit_parent = NodePath("FruitParent")
+fruit_obj = ExtResource("2_wnfrh")
+
+[node name="Bucket" parent="." instance=ExtResource("1_wo045")]
+
+[node name="Cursor" parent="." instance=ExtResource("2_rlhhv")]
+position = Vector2(0, -279)
+fruit = ExtResource("3_7d4so")
+
+[node name="CursorBounds" type="Node2D" parent="."]
+position = Vector2(0, -279)
+
+[node name="Left" type="Node2D" parent="CursorBounds"]
+position = Vector2(-330, 0)
+
+[node name="Right" type="Node2D" parent="CursorBounds"]
+position = Vector2(330, 0)
+
+[node name="FruitParent" type="Node2D" parent="."]

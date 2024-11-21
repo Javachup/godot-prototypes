@@ -21,9 +21,11 @@ fruit = ExtResource("2_sylgm")
 sprite = NodePath("Art/Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_y4mjb")
 
 [node name="Art" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Art"]
 scale = Vector2(0.78, 0.78)

@@ -6,4 +6,4 @@
 script = ExtResource("1_02752")
 name = "Strawberry"
 color = Color(0.992157, 0, 0.223529, 1)
-radius = 40.0
+radius = 30.0

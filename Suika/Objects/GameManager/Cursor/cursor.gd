@@ -1,4 +1,4 @@
-class_name FruitObj
+class_name Cursor
 extends Node2D
 
 @export_category("External Refs")
@@ -6,11 +6,9 @@ extends Node2D
 	get:
 		return fruit
 	set(value):
-		if value == null:
-			printerr("Set fruit to Null!")
-			return
 		fruit = value
-		if sprite: sprite.modulate = fruit.color
+		if sprite:
+			sprite.modulate = fruit.color
 		_set_scale_children(fruit.radius * 0.01)
 
 @export_group("Internal Refs")
@@ -18,13 +16,6 @@ extends Node2D
 
 func _ready():
 	fruit = fruit
-
-func _on_body_entered(body):
-	if body is FruitObj:
-		if body.fruit == fruit && fruit.merge_into != null:
-			position = lerp(position, body.position, 0.5)
-			fruit = fruit.merge_into
-			body.free()
 
 func _set_scale_children(new_scale : float):
 	for child in get_children():

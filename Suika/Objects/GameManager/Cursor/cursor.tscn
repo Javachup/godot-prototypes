@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://chwion8v1la63"]
+
+[ext_resource type="Script" path="res://Objects/GameManager/Cursor/cursor.gd" id="1_qamvf"]
+[ext_resource type="Texture2D" uid="uid://dcwokobe4oa2r" path="res://Art/Circle.png" id="1_vhlcx"]
+
+[node name="Cursor" type="Node2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_qamvf")
+sprite = NodePath("Art/Sprite2D")
+
+[node name="Art" type="Node2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Art"]
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("1_vhlcx")
