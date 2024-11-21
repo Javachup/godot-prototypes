@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ce2i4wem4pd0y"]
+
+[node name="Root" type="Node"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+zoom = Vector2(0.835, 0.835)
+
+[node name="Bucket" type="Node2D" parent="World"]
+position = Vector2(4, 39)
+
+[node name="Wall" type="Polygon2D" parent="World/Bucket"]
+position = Vector2(-400, -200)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 500, 0, 500)
+
+[node name="Wall2" type="Polygon2D" parent="World/Bucket"]
+position = Vector2(400, -200)
+polygon = PackedVector2Array(0, 0, 40, 0, 40, 500, 0, 500)
+
+[node name="Wall3" type="Polygon2D" parent="World/Bucket"]
+position = Vector2(-400, 260)
+polygon = PackedVector2Array(0, 0, 840, 0, 840, 40, 0, 40)
