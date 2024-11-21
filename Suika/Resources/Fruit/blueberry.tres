@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Fruit" load_steps=2 format=3 uid="uid://d302d0umqw3hq"]
+
+[ext_resource type="Script" path="res://Objects/Fruit/fruit.gd" id="1_bswhx"]
+
+[resource]
+script = ExtResource("1_bswhx")
+name = "Blueberry"
+color = Color(0.579861, 0.00336492, 0.902852, 1)
+radius = 20.0

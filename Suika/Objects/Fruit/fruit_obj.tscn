@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://pxq35cuej5oh"]
+
+[ext_resource type="Script" path="res://Objects/Fruit/fruit_obj.gd" id="1_u8dx8"]
+[ext_resource type="Resource" uid="uid://d302d0umqw3hq" path="res://Resources/Fruit/blueberry.tres" id="2_sylgm"]
+[ext_resource type="Texture2D" uid="uid://dcwokobe4oa2r" path="res://Art/Circle.png" id="2_xrqp1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2kxi5"]
+bounce = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y4mjb"]
+radius = 100.0
+
+[node name="Fruit" type="RigidBody2D" node_paths=PackedStringArray("sprite")]
+physics_material_override = SubResource("PhysicsMaterial_2kxi5")
+script = ExtResource("1_u8dx8")
+fruit = ExtResource("2_sylgm")
+sprite = NodePath("Art/Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y4mjb")
+
+[node name="Art" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Art"]
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("2_xrqp1")
