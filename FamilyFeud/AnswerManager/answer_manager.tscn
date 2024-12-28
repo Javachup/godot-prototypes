@@ -22,23 +22,53 @@ answers = [NodePath("Answer1"), NodePath("Answer2"), NodePath("Answer3"), NodePa
 [node name="Answer1" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 
+[node name="Answer5" parent="." instance=ExtResource("1_gq7v7")]
+layout_mode = 2
+
+[node name="Number" parent="Answer5" index="2"]
+text = "5"
+
 [node name="Answer2" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 
-[node name="Answer3" parent="." instance=ExtResource("1_gq7v7")]
-layout_mode = 2
-
-[node name="Answer4" parent="." instance=ExtResource("1_gq7v7")]
-layout_mode = 2
-
-[node name="Answer5" parent="." instance=ExtResource("1_gq7v7")]
-layout_mode = 2
+[node name="Number" parent="Answer2" index="2"]
+text = "2"
 
 [node name="Answer6" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 
+[node name="Number" parent="Answer6" index="2"]
+text = "6"
+
+[node name="Answer3" parent="." instance=ExtResource("1_gq7v7")]
+layout_mode = 2
+
+[node name="Number" parent="Answer3" index="2"]
+text = "3"
+
 [node name="Answer7" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 
+[node name="Number" parent="Answer7" index="2"]
+text = "7"
+
+[node name="Answer4" parent="." instance=ExtResource("1_gq7v7")]
+layout_mode = 2
+
+[node name="Number" parent="Answer4" index="2"]
+text = "4"
+
 [node name="Answer8" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
+
+[node name="Number" parent="Answer8" index="2"]
+text = "8"
+
+[editable path="Answer1"]
+[editable path="Answer5"]
+[editable path="Answer2"]
+[editable path="Answer6"]
+[editable path="Answer3"]
+[editable path="Answer7"]
+[editable path="Answer4"]
+[editable path="Answer8"]

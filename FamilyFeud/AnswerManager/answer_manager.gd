@@ -15,5 +15,4 @@ func _unhandled_input(event):
 	elif event.is_action_released("Reveal8"): reveal = 8
 
 	if reveal > 0:
-		print(reveal)
 		answers[reveal-1].reveal()
