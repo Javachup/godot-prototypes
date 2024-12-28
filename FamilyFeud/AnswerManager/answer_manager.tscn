@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d00h0posy3hnu"]
+[gd_scene load_steps=3 format=3 uid="uid://d00h0posy3hnu"]
 
+[ext_resource type="Script" path="res://AnswerManager/answer_manager.gd" id="1_ae0rn"]
 [ext_resource type="PackedScene" uid="uid://bc7d66mqp3h8g" path="res://Answer/answer.tscn" id="1_gq7v7"]
 
-[node name="GridContainer" type="GridContainer"]
+[node name="AnswerManager" type="GridContainer" node_paths=PackedStringArray("answers")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -15,8 +16,10 @@ offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 2
+script = ExtResource("1_ae0rn")
+answers = [NodePath("Answer1"), NodePath("Answer2"), NodePath("Answer3"), NodePath("Answer4"), NodePath("Answer5"), NodePath("Answer6"), NodePath("Answer7"), NodePath("Answer8")]
 
-[node name="Answer" parent="." instance=ExtResource("1_gq7v7")]
+[node name="Answer1" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 
 [node name="Answer2" parent="." instance=ExtResource("1_gq7v7")]
