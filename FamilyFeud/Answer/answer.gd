@@ -7,3 +7,6 @@ extends Control
 func reveal():
 	number.visible = false
 	real_answer.visible = true
+
+func set_answer(answer: String):
+	real_answer.text = answer
