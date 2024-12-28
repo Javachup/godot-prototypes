@@ -25,43 +25,43 @@ layout_mode = 2
 [node name="Answer5" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 
-[node name="Number" parent="Answer5" index="2"]
+[node name="Number" parent="Answer5/Hidden Side" index="0"]
 text = "5"
 
 [node name="Answer2" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 
-[node name="Number" parent="Answer2" index="2"]
+[node name="Number" parent="Answer2/Hidden Side" index="0"]
 text = "2"
 
 [node name="Answer6" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 
-[node name="Number" parent="Answer6" index="2"]
+[node name="Number" parent="Answer6/Hidden Side" index="0"]
 text = "6"
 
 [node name="Answer3" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 
-[node name="Number" parent="Answer3" index="2"]
+[node name="Number" parent="Answer3/Hidden Side" index="0"]
 text = "3"
 
 [node name="Answer7" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 
-[node name="Number" parent="Answer7" index="2"]
+[node name="Number" parent="Answer7/Hidden Side" index="0"]
 text = "7"
 
 [node name="Answer4" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 
-[node name="Number" parent="Answer4" index="2"]
+[node name="Number" parent="Answer4/Hidden Side" index="0"]
 text = "4"
 
 [node name="Answer8" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 
-[node name="Number" parent="Answer8" index="2"]
+[node name="Number" parent="Answer8/Hidden Side" index="0"]
 text = "8"
 
 [editable path="Answer1"]

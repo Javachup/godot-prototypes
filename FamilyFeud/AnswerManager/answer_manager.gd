@@ -3,6 +3,9 @@ extends GridContainer
 
 @export var answers : Array[Answer]
 
+func _ready():
+	load_question("res://Questions/TestQuestion.txt")
+
 func _unhandled_input(event):
 	var reveal = -1
 	if   event.is_action_released("Reveal1"): reveal = 1
@@ -16,3 +19,18 @@ func _unhandled_input(event):
 
 	if reveal > 0:
 		answers[reveal-1].reveal()
+
+func load_question(file_name: String):
+	var file = FileAccess.open(file_name, FileAccess.READ)
+	
+	for i in 8: answers[i].set_is_real(false)
+	
+	for i in 8:
+		if file.eof_reached(): break
+
+		var line = file.get_csv_line()
+		if line.size() != 2:
+			printerr("Line " % i % "of question " % file_name % "does not have 2 entries")
+			continue
+
+		answers[i].set_answer(line[0], int(line[1]))

@@ -24,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.353963, 0.833228, 1)
 
-[node name="Real Answer" type="Label" parent="."]
+[node name="Reveal Side" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -33,12 +33,47 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Real Answer" type="Label" parent="Reveal Side"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -51.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Test Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Number" type="Label" parent="."]
+[node name="Real Number" type="Label" parent="Reveal Side"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 162.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Hidden Side" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Number" type="Label" parent="Hidden Side"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
