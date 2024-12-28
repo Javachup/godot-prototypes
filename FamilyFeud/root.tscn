@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuatau4la05m2"]
+
+[ext_resource type="Texture2D" uid="uid://bpq26eq0ohjav" path="res://Ref/Board.png" id="1_7db5n"]
+[ext_resource type="PackedScene" uid="uid://bc7d66mqp3h8g" path="res://Answer/answer.tscn" id="1_7q42a"]
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0666667, 0.172549, 0.65098, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -326.0
+offset_right = 514.0
+offset_bottom = 433.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7db5n")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -137.0
+offset_right = 213.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Answer" parent="CanvasLayer/GridContainer" instance=ExtResource("1_7q42a")]
+layout_mode = 2
+
+[node name="Answer2" parent="CanvasLayer/GridContainer" instance=ExtResource("1_7q42a")]
+layout_mode = 2
+
+[node name="Answer3" parent="CanvasLayer/GridContainer" instance=ExtResource("1_7q42a")]
+layout_mode = 2
+
+[node name="Answer4" parent="CanvasLayer/GridContainer" instance=ExtResource("1_7q42a")]
+layout_mode = 2
+
+[node name="Answer5" parent="CanvasLayer/GridContainer" instance=ExtResource("1_7q42a")]
+layout_mode = 2
+
+[node name="Answer6" parent="CanvasLayer/GridContainer" instance=ExtResource("1_7q42a")]
+layout_mode = 2
+
+[node name="Answer7" parent="CanvasLayer/GridContainer" instance=ExtResource("1_7q42a")]
+layout_mode = 2
+
+[node name="Answer8" parent="CanvasLayer/GridContainer" instance=ExtResource("1_7q42a")]
+layout_mode = 2

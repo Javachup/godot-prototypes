@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc7d66mqp3h8g"]
+
+[ext_resource type="Theme" uid="uid://b4b1doqhlrgh6" path="res://Themes/theme.tres" id="1_50q1h"]
+[ext_resource type="Script" path="res://Answer/answer.gd" id="2_4yhfq"]
+
+[node name="Answer" type="Control"]
+custom_minimum_size = Vector2(210, 55)
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = -942.0
+offset_bottom = -269.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_50q1h")
+script = ExtResource("2_4yhfq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.353963, 0.833228, 1)
+
+[node name="Real Answer" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Number" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

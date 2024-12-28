@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b4b1doqhlrgh6"]
+
+[ext_resource type="FontFile" uid="uid://beyttbnhvwike" path="res://Themes/Oswald-VariableFont_wght.ttf" id="1_eswai"]
+
+[resource]
+default_font = ExtResource("1_eswai")
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 37
+Label/fonts/font = ExtResource("1_eswai")
