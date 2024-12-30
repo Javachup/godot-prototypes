@@ -1,8 +1,193 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc7d66mqp3h8g"]
+[gd_scene load_steps=17 format=3 uid="uid://bc7d66mqp3h8g"]
 
 [ext_resource type="Theme" uid="uid://b4b1doqhlrgh6" path="res://Themes/theme.tres" id="1_50q1h"]
 [ext_resource type="Script" path="res://Answer/answer.gd" id="2_4yhfq"]
+[ext_resource type="Texture2D" uid="uid://dibh1gsdkbjmj" path="res://Assets/Answer/NotReal.png" id="3_6ktw4"]
 [ext_resource type="AudioStream" uid="uid://comjoej0bb6m7" path="res://Assets/Sounds/Ding.mp3" id="3_gt1dx"]
+[ext_resource type="Texture2D" uid="uid://dunkhqstyidow" path="res://Assets/Answer/Revealed.png" id="3_iwjeo"]
+[ext_resource type="Texture2D" uid="uid://o3tqf38hoabb" path="res://Assets/Answer/Hidden.png" id="3_vs3rx"]
+[ext_resource type="Texture2D" uid="uid://bmbjgaradwd48" path="res://Assets/Answer/a1.png" id="6_60lyn"]
+[ext_resource type="Texture2D" uid="uid://cjj5o8vfe5kmh" path="res://Assets/Answer/a2.png" id="7_8wm1e"]
+[ext_resource type="Texture2D" uid="uid://cv8tn08vpjt3u" path="res://Assets/Answer/a3.png" id="8_3whjd"]
+[ext_resource type="Texture2D" uid="uid://c5qd6ouroylhp" path="res://Assets/Answer/a4.png" id="9_vdbne"]
+[ext_resource type="Texture2D" uid="uid://cuuqf6iuci07x" path="res://Assets/Answer/a6.png" id="10_wj5r8"]
+[ext_resource type="Texture2D" uid="uid://dq6oqhrwu55bh" path="res://Assets/Answer/a7.png" id="11_n4xnf"]
+
+[sub_resource type="Animation" id="Animation_kh4qs"]
+resource_name = "Reveal"
+length = 0.26667
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_vs3rx"), ExtResource("6_60lyn"), ExtResource("7_8wm1e"), ExtResource("8_3whjd"), ExtResource("9_vdbne"), ExtResource("10_wj5r8"), ExtResource("11_n4xnf"), ExtResource("3_iwjeo")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Reveal Side:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hidden Side:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hidden Side/Number:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -0.5), Vector2(0, 50)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hidden Side/Number:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_hc07l"]
+resource_name = "Hide"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_vs3rx")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Reveal Side:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hidden Side/Number:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hidden Side:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hidden Side/Number:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_yl6tw"]
+resource_name = "NotReal"
+length = 0.10001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_6ktw4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Reveal Side:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hidden Side:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yvyms"]
+_data = {
+"Hide": SubResource("Animation_hc07l"),
+"NotReal": SubResource("Animation_yl6tw"),
+"Reveal": SubResource("Animation_kh4qs")
+}
 
 [node name="Answer" type="Control"]
 custom_minimum_size = Vector2(210, 55)
@@ -25,9 +210,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.353963, 0.833228, 1)
 
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(210, 55)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vs3rx")
+expand_mode = 1
+
 [node name="Reveal Side" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,7 +263,6 @@ uppercase = true
 
 [node name="Hidden Side" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -81,12 +276,20 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -0.5
+offset_bottom = 0.500107
 grow_horizontal = 2
 grow_vertical = 2
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_yvyms")
+}
 
 [node name="Ding" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

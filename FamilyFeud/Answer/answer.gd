@@ -1,23 +1,22 @@
 class_name Answer
 extends Control
 
-@onready var reveal_side: Control = %"Reveal Side"
-@onready var hidden_side: Control = %"Hidden Side"
-
 @onready var real_answer: Label = %"Real Answer"
 @onready var real_number: Label = %"Real Number"
 @onready var number: Label = %Number
 var value: int = 0
 
 @onready var ding = %Ding
+@onready var anim = %Anim
 
 var is_real := false
+var is_hidden := true
 
 # returns 1 when made revealed, -1 when made hidden, and 0 when it isn't real
 func toggle_reveal() -> int:
 	if not is_real: return 0
 
-	if hidden_side.visible:
+	if is_hidden:
 		reveal()
 		return 1
 	else:
@@ -27,18 +26,18 @@ func toggle_reveal() -> int:
 func reveal():
 	if not is_real: return
 
-	hidden_side.visible = false
-	reveal_side.visible = true
-
+	anim.play("Reveal")
 	ding.play()
 
+	is_hidden = false
+
 func make_hidden():
-	hidden_side.visible = true
-	reveal_side.visible = false
+	anim.play("Hide")
+
+	is_hidden = true
 
 func make_not_real():
-	hidden_side.visible = false
-	reveal_side.visible = false
+	anim.play("NotReal")
 
 func set_answer(answer: String, number: int):
 	set_is_real(true)
