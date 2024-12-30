@@ -2,6 +2,7 @@ class_name Wrongs
 extends Control
 
 @export var wrongs: Array[Wrong]
+@onready var buzzer = %Buzzer
 
 func _unhandled_input(event):
 	if   event.is_action_pressed("Wrong1"): show_wrong(1)
@@ -17,3 +18,5 @@ func show_wrong(num: int):
 
 	for i in num:
 		wrongs[i].make_visible()
+
+	buzzer.play()
