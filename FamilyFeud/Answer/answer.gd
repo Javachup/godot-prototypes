@@ -10,6 +10,12 @@ extends Control
 
 var is_real := false
 
+func toggle_reveal():
+	if not is_real: return
+
+	if hidden_side.visible: reveal()
+	else: make_hidden()
+
 func reveal():
 	if not is_real: return
 

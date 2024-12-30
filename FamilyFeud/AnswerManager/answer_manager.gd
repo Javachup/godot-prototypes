@@ -18,7 +18,7 @@ func _unhandled_input(event):
 	elif event.is_action_released("Reveal8"): reveal = 8
 
 	if reveal > 0:
-		answers[reveal-1].reveal()
+		answers[reveal-1].toggle_reveal()
 
 	if event.is_action_pressed("HideAll"): load_question(last_loaded_path)
 	if event.is_action_pressed("LoadNewQuestion"): open_dialog()
