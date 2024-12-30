@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuatau4la05m2"]
+[gd_scene load_steps=4 format=3 uid="uid://cuatau4la05m2"]
 
 [ext_resource type="Texture2D" uid="uid://bpq26eq0ohjav" path="res://Ref/Board.png" id="1_7db5n"]
 [ext_resource type="PackedScene" uid="uid://d00h0posy3hnu" path="res://AnswerManager/answer_manager.tscn" id="2_70fva"]
+[ext_resource type="PackedScene" uid="uid://c6aastqpgo2mj" path="res://Wrongs/wrongs.tscn" id="3_7yu0s"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -37,3 +38,5 @@ grow_vertical = 2
 texture = ExtResource("1_7db5n")
 
 [node name="AnswerManager" parent="CanvasLayer" instance=ExtResource("2_70fva")]
+
+[node name="Wrongs" parent="CanvasLayer" instance=ExtResource("3_7yu0s")]

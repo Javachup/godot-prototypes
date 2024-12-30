@@ -8,6 +8,9 @@ var score := 0
 
 var last_loaded_path: String
 
+func _ready():
+	open_dialog()
+
 func _process(delta):
 	score_label.text = str(score)
 
