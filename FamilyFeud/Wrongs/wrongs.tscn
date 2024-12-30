@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6aastqpgo2mj"]
+[gd_scene load_steps=3 format=3 uid="uid://c6aastqpgo2mj"]
 
+[ext_resource type="Script" path="res://Wrongs/wrongs.gd" id="1_of2sm"]
 [ext_resource type="PackedScene" uid="uid://jabpahpylwer" path="res://Wrongs/wrong.tscn" id="1_quywf"]
 
-[node name="Wrongs" type="Control"]
+[node name="Wrongs" type="Control" node_paths=PackedStringArray("wrongs")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_of2sm")
+wrongs = [NodePath("HBoxContainer/Wrong1"), NodePath("HBoxContainer/Wrong2"), NodePath("HBoxContainer/Wrong3")]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -24,11 +27,14 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Wrong" parent="HBoxContainer" instance=ExtResource("1_quywf")]
+[node name="Wrong1" parent="HBoxContainer" instance=ExtResource("1_quywf")]
+visible = false
 layout_mode = 2
 
 [node name="Wrong2" parent="HBoxContainer" instance=ExtResource("1_quywf")]
+visible = false
 layout_mode = 2
 
 [node name="Wrong3" parent="HBoxContainer" instance=ExtResource("1_quywf")]
+visible = false
 layout_mode = 2
