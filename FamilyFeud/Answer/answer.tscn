@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc7d66mqp3h8g"]
+[gd_scene load_steps=4 format=3 uid="uid://bc7d66mqp3h8g"]
 
 [ext_resource type="Theme" uid="uid://b4b1doqhlrgh6" path="res://Themes/theme.tres" id="1_50q1h"]
 [ext_resource type="Script" path="res://Answer/answer.gd" id="2_4yhfq"]
+[ext_resource type="AudioStream" uid="uid://comjoej0bb6m7" path="res://Assets/Sounds/Ding.mp3" id="3_gt1dx"]
 
 [node name="Answer" type="Control"]
 custom_minimum_size = Vector2(210, 55)
@@ -86,3 +87,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="Ding" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_gt1dx")

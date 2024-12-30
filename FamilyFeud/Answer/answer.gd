@@ -9,6 +9,8 @@ extends Control
 @onready var number: Label = %Number
 var value: int = 0
 
+@onready var ding = %Ding
+
 var is_real := false
 
 # returns 1 when made revealed, -1 when made hidden, and 0 when it isn't real
@@ -27,6 +29,8 @@ func reveal():
 
 	hidden_side.visible = false
 	reveal_side.visible = true
+
+	ding.play()
 
 func make_hidden():
 	hidden_side.visible = true

@@ -1,8 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://d00h0posy3hnu"]
+[gd_scene load_steps=12 format=3 uid="uid://d00h0posy3hnu"]
 
 [ext_resource type="Script" path="res://AnswerManager/answer_manager.gd" id="1_ae0rn"]
 [ext_resource type="PackedScene" uid="uid://bc7d66mqp3h8g" path="res://Answer/answer.tscn" id="1_gq7v7"]
 [ext_resource type="Theme" uid="uid://b4b1doqhlrgh6" path="res://Themes/theme.tres" id="3_r577l"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jita2"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pdd54"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_noniw"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6ir8o"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x4q7b"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dvmxp"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_71ahd"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_keoqu"]
+viewport_path = NodePath("SubViewport")
 
 [node name="AnswerManager" type="Control" node_paths=PackedStringArray("answers")]
 layout_mode = 3
@@ -28,6 +52,9 @@ anchor_bottom = 0.0
 offset_right = 210.0
 offset_bottom = 55.0
 
+[node name="TextureRect" parent="Answer1" index="4"]
+texture = SubResource("ViewportTexture_jita2")
+
 [node name="Answer5" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 anchors_preset = 0
@@ -40,6 +67,9 @@ offset_bottom = 55.0
 [node name="Number" parent="Answer5/Hidden Side" index="0"]
 text = "5"
 
+[node name="TextureRect" parent="Answer5" index="4"]
+texture = SubResource("ViewportTexture_pdd54")
+
 [node name="Answer2" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 anchors_preset = 0
@@ -51,6 +81,9 @@ offset_bottom = 114.0
 
 [node name="Number" parent="Answer2/Hidden Side" index="0"]
 text = "2"
+
+[node name="TextureRect" parent="Answer2" index="4"]
+texture = SubResource("ViewportTexture_noniw")
 
 [node name="Answer6" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
@@ -65,6 +98,9 @@ offset_bottom = 114.0
 [node name="Number" parent="Answer6/Hidden Side" index="0"]
 text = "6"
 
+[node name="TextureRect" parent="Answer6" index="4"]
+texture = SubResource("ViewportTexture_6ir8o")
+
 [node name="Answer3" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 anchors_preset = 0
@@ -76,6 +112,9 @@ offset_bottom = 173.0
 
 [node name="Number" parent="Answer3/Hidden Side" index="0"]
 text = "3"
+
+[node name="TextureRect" parent="Answer3" index="4"]
+texture = SubResource("ViewportTexture_x4q7b")
 
 [node name="Answer7" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
@@ -90,6 +129,9 @@ offset_bottom = 173.0
 [node name="Number" parent="Answer7/Hidden Side" index="0"]
 text = "7"
 
+[node name="TextureRect" parent="Answer7" index="4"]
+texture = SubResource("ViewportTexture_dvmxp")
+
 [node name="Answer4" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
 anchors_preset = 0
@@ -101,6 +143,9 @@ offset_bottom = 232.0
 
 [node name="Number" parent="Answer4/Hidden Side" index="0"]
 text = "4"
+
+[node name="TextureRect" parent="Answer4" index="4"]
+texture = SubResource("ViewportTexture_71ahd")
 
 [node name="Answer8" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
@@ -114,6 +159,9 @@ offset_bottom = 232.0
 
 [node name="Number" parent="Answer8/Hidden Side" index="0"]
 text = "8"
+
+[node name="TextureRect" parent="Answer8" index="4"]
+texture = SubResource("ViewportTexture_keoqu")
 
 [node name="Score" type="Label" parent="."]
 unique_name_in_owner = true
