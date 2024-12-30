@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuatau4la05m2"]
+[gd_scene load_steps=7 format=3 uid="uid://cuatau4la05m2"]
 
 [ext_resource type="Texture2D" uid="uid://bpq26eq0ohjav" path="res://Ref/Board.png" id="1_7db5n"]
+[ext_resource type="Texture2D" uid="uid://dkgcvk7mfhpxg" path="res://Assets/Background.png" id="1_jxmiu"]
 [ext_resource type="PackedScene" uid="uid://d00h0posy3hnu" path="res://AnswerManager/answer_manager.tscn" id="2_70fva"]
+[ext_resource type="Texture2D" uid="uid://dxu7bjqj8tonk" path="res://Assets/Border.png" id="3_2h3fc"]
 [ext_resource type="PackedScene" uid="uid://c6aastqpgo2mj" path="res://Wrongs/wrongs.tscn" id="3_7yu0s"]
+[ext_resource type="Texture2D" uid="uid://dtkips4bg63td" path="res://Assets/Border_small.png" id="4_61033"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -22,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0666667, 0.172549, 0.65098, 1)
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="REf" type="TextureRect" parent="CanvasLayer"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,6 +40,56 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_7db5n")
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 28.0
+offset_right = -50.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jxmiu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnswerBG" type="TextureRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(40, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = -159.0
+offset_right = 234.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2h3fc")
+expand_mode = 1
+
+[node name="AnswerBG2" type="TextureRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(40, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -273.0
+offset_right = 58.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_61033")
+expand_mode = 1
+
 [node name="AnswerManager" parent="CanvasLayer" instance=ExtResource("2_70fva")]
 
 [node name="Wrongs" parent="CanvasLayer" instance=ExtResource("3_7yu0s")]
+offset_left = -18.0
+offset_top = 3.0
+offset_right = -18.0
+offset_bottom = 3.0
