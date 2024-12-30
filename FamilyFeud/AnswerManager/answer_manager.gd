@@ -3,8 +3,7 @@ extends GridContainer
 
 @export var answers : Array[Answer]
 
-func _ready():
-	load_question("res://Questions/TestQuestion.txt")
+var last_loaded_path: String
 
 func _unhandled_input(event):
 	var reveal = -1
@@ -20,11 +19,17 @@ func _unhandled_input(event):
 	if reveal > 0:
 		answers[reveal-1].reveal()
 
+	if event.is_action_pressed("HideAll"): load_question(last_loaded_path)
+
 func load_question(file_name: String):
+	if !FileAccess.file_exists(file_name):
+		printerr("File " % file_name % "could not be found!")
+		return
+
 	var file = FileAccess.open(file_name, FileAccess.READ)
-	
+
 	for i in 8: answers[i].set_is_real(false)
-	
+
 	for i in 8:
 		if file.eof_reached(): break
 
@@ -34,3 +39,8 @@ func load_question(file_name: String):
 			continue
 
 		answers[i].set_answer(line[0], int(line[1]))
+
+	last_loaded_path = file_name
+
+func _on_file_dialog_file_selected(path):
+	load_question(path)
