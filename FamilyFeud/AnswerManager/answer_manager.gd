@@ -1,10 +1,15 @@
 class_name AnswerManager
-extends GridContainer
+extends Control
 
 @export var answers : Array[Answer]
 @onready var file_dialog = %FileDialog
+@onready var score_label = %Score
+var score := 0
 
 var last_loaded_path: String
+
+func _process(delta):
+	score_label.text = str(score)
 
 func _unhandled_input(event):
 	var reveal = -1
@@ -18,7 +23,9 @@ func _unhandled_input(event):
 	elif event.is_action_released("Reveal8"): reveal = 8
 
 	if reveal > 0:
-		answers[reveal-1].toggle_reveal()
+		var add = answers[reveal-1].value
+		add *= answers[reveal-1].toggle_reveal()
+		score += add
 
 	if event.is_action_pressed("HideAll"): load_question(last_loaded_path)
 	if event.is_action_pressed("LoadNewQuestion"): open_dialog()

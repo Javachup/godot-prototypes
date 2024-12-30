@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d00h0posy3hnu"]
+[gd_scene load_steps=4 format=3 uid="uid://d00h0posy3hnu"]
 
 [ext_resource type="Script" path="res://AnswerManager/answer_manager.gd" id="1_ae0rn"]
 [ext_resource type="PackedScene" uid="uid://bc7d66mqp3h8g" path="res://Answer/answer.tscn" id="1_gq7v7"]
+[ext_resource type="Theme" uid="uid://b4b1doqhlrgh6" path="res://Themes/theme.tres" id="3_r577l"]
 
-[node name="AnswerManager" type="GridContainer" node_paths=PackedStringArray("answers")]
+[node name="AnswerManager" type="Control" node_paths=PackedStringArray("answers")]
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -15,61 +17,132 @@ offset_right = 213.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 2
 script = ExtResource("1_ae0rn")
 answers = [NodePath("Answer1"), NodePath("Answer2"), NodePath("Answer3"), NodePath("Answer4"), NodePath("Answer5"), NodePath("Answer6"), NodePath("Answer7"), NodePath("Answer8")]
 
 [node name="Answer1" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 210.0
+offset_bottom = 55.0
 
 [node name="Answer5" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 214.0
+offset_right = 424.0
+offset_bottom = 55.0
 
 [node name="Number" parent="Answer5/Hidden Side" index="0"]
 text = "5"
 
 [node name="Answer2" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 59.0
+offset_right = 210.0
+offset_bottom = 114.0
 
 [node name="Number" parent="Answer2/Hidden Side" index="0"]
 text = "2"
 
 [node name="Answer6" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 214.0
+offset_top = 59.0
+offset_right = 424.0
+offset_bottom = 114.0
 
 [node name="Number" parent="Answer6/Hidden Side" index="0"]
 text = "6"
 
 [node name="Answer3" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 118.0
+offset_right = 210.0
+offset_bottom = 173.0
 
 [node name="Number" parent="Answer3/Hidden Side" index="0"]
 text = "3"
 
 [node name="Answer7" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 214.0
+offset_top = 118.0
+offset_right = 424.0
+offset_bottom = 173.0
 
 [node name="Number" parent="Answer7/Hidden Side" index="0"]
 text = "7"
 
 [node name="Answer4" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 177.0
+offset_right = 210.0
+offset_bottom = 232.0
 
 [node name="Number" parent="Answer4/Hidden Side" index="0"]
 text = "4"
 
 [node name="Answer8" parent="." instance=ExtResource("1_gq7v7")]
 layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 214.0
+offset_top = 177.0
+offset_right = 424.0
+offset_bottom = 232.0
 
 [node name="Number" parent="Answer8/Hidden Side" index="0"]
 text = "8"
+
+[node name="Score" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -116.31
+offset_bottom = -0.309998
+grow_horizontal = 2
+
+[node name="TotalScore" type="Label" parent="Score"]
+layout_mode = 2
+theme = ExtResource("3_r577l")
+text = "Total Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Score"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_r577l")
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="FileDialog" type="FileDialog" parent="."]
 unique_name_in_owner = true
 title = "Open a File"
 initial_position = 1
 size = Vector2i(600, 500)
-visible = true
 always_on_top = true
 ok_button_text = "Open"
 dialog_hide_on_ok = true
