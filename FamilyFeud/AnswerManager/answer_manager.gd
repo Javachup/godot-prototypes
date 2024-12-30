@@ -2,6 +2,7 @@ class_name AnswerManager
 extends GridContainer
 
 @export var answers : Array[Answer]
+@onready var file_dialog = %FileDialog
 
 var last_loaded_path: String
 
@@ -20,6 +21,7 @@ func _unhandled_input(event):
 		answers[reveal-1].reveal()
 
 	if event.is_action_pressed("HideAll"): load_question(last_loaded_path)
+	if event.is_action_pressed("LoadNewQuestion"): open_dialog()
 
 func load_question(file_name: String):
 	if !FileAccess.file_exists(file_name):
@@ -41,6 +43,9 @@ func load_question(file_name: String):
 		answers[i].set_answer(line[0], int(line[1]))
 
 	last_loaded_path = file_name
+
+func open_dialog():
+	file_dialog.visible = true
 
 func _on_file_dialog_file_selected(path):
 	load_question(path)
