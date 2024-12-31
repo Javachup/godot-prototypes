@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1abbqa3bscop"]
+
+[ext_resource type="Theme" uid="uid://b4b1doqhlrgh6" path="res://Themes/theme.tres" id="1_gj6qw"]
+[ext_resource type="Script" path="res://FastMoneyAnswer/fast_money_answer.gd" id="1_y0ive"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vtxw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3tgah"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6xuiv"]
+
+[node name="FastMoneyAnswer" type="Control"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y0ive")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gj6qw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5vtxw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3tgah")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_6xuiv")
+deselect_on_focus_loss_enabled = false

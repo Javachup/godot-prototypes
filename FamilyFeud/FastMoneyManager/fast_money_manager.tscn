@@ -1,0 +1,143 @@
+[gd_scene load_steps=4 format=3 uid="uid://rwp1oa7cpx70"]
+
+[ext_resource type="Script" path="res://FastMoneyManager/fast_money_manager.gd" id="1_aoaue"]
+[ext_resource type="PackedScene" uid="uid://b1abbqa3bscop" path="res://FastMoneyAnswer/fast_money_answer.tscn" id="1_fb4gk"]
+[ext_resource type="Theme" uid="uid://b4b1doqhlrgh6" path="res://Themes/theme.tres" id="3_jigi3"]
+
+[node name="FastMoneyManager" type="Control" node_paths=PackedStringArray("answers_1", "scores_1", "answers_2", "scores_2")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aoaue")
+answers_1 = [NodePath("Background/GridContainer/A1"), NodePath("Background/GridContainer/A2"), NodePath("Background/GridContainer/A3"), NodePath("Background/GridContainer/A4"), NodePath("Background/GridContainer/A5")]
+scores_1 = [NodePath("Background/GridContainer/S1"), NodePath("Background/GridContainer/S2"), NodePath("Background/GridContainer/S3"), NodePath("Background/GridContainer/S4"), NodePath("Background/GridContainer/S5")]
+answers_2 = [NodePath("Background/GridContainer2/A1"), NodePath("Background/GridContainer2/A2"), NodePath("Background/GridContainer2/A3"), NodePath("Background/GridContainer2/A4"), NodePath("Background/GridContainer2/A5")]
+scores_2 = [NodePath("Background/GridContainer2/S1"), NodePath("Background/GridContainer2/S2"), NodePath("Background/GridContainer2/S3"), NodePath("Background/GridContainer2/S4"), NodePath("Background/GridContainer2/S5")]
+
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(420, 225)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0666667, 0.172549, 0.65098, 1)
+
+[node name="GridContainer" type="GridContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -83.0
+offset_right = -17.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="A1" parent="Background/GridContainer" instance=ExtResource("1_fb4gk")]
+layout_mode = 2
+
+[node name="S1" parent="Background/GridContainer" instance=ExtResource("1_fb4gk")]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+
+[node name="A2" parent="Background/GridContainer" instance=ExtResource("1_fb4gk")]
+layout_mode = 2
+
+[node name="S2" parent="Background/GridContainer" instance=ExtResource("1_fb4gk")]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+
+[node name="A3" parent="Background/GridContainer" instance=ExtResource("1_fb4gk")]
+layout_mode = 2
+
+[node name="S3" parent="Background/GridContainer" instance=ExtResource("1_fb4gk")]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+
+[node name="A4" parent="Background/GridContainer" instance=ExtResource("1_fb4gk")]
+layout_mode = 2
+
+[node name="S4" parent="Background/GridContainer" instance=ExtResource("1_fb4gk")]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+
+[node name="A5" parent="Background/GridContainer" instance=ExtResource("1_fb4gk")]
+layout_mode = 2
+
+[node name="S5" parent="Background/GridContainer" instance=ExtResource("1_fb4gk")]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+
+[node name="GridContainer2" type="GridContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -83.0
+offset_right = 172.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="A1" parent="Background/GridContainer2" instance=ExtResource("1_fb4gk")]
+layout_mode = 2
+
+[node name="S1" parent="Background/GridContainer2" instance=ExtResource("1_fb4gk")]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+
+[node name="A2" parent="Background/GridContainer2" instance=ExtResource("1_fb4gk")]
+layout_mode = 2
+
+[node name="S2" parent="Background/GridContainer2" instance=ExtResource("1_fb4gk")]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+
+[node name="A3" parent="Background/GridContainer2" instance=ExtResource("1_fb4gk")]
+layout_mode = 2
+
+[node name="S3" parent="Background/GridContainer2" instance=ExtResource("1_fb4gk")]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+
+[node name="A4" parent="Background/GridContainer2" instance=ExtResource("1_fb4gk")]
+layout_mode = 2
+
+[node name="S4" parent="Background/GridContainer2" instance=ExtResource("1_fb4gk")]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+
+[node name="A5" parent="Background/GridContainer2" instance=ExtResource("1_fb4gk")]
+layout_mode = 2
+
+[node name="S5" parent="Background/GridContainer2" instance=ExtResource("1_fb4gk")]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+
+[node name="Score" type="Label" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -119.5
+offset_bottom = -63.5
+grow_horizontal = 2
+theme = ExtResource("3_jigi3")
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1

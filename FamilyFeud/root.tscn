@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuatau4la05m2"]
+[gd_scene load_steps=8 format=3 uid="uid://cuatau4la05m2"]
 
-[ext_resource type="Texture2D" uid="uid://bpq26eq0ohjav" path="res://Ref/Board.png" id="1_7db5n"]
+[ext_resource type="Script" path="res://EverythingManager.gd" id="1_cijje"]
 [ext_resource type="Texture2D" uid="uid://dkgcvk7mfhpxg" path="res://Assets/Background.png" id="1_jxmiu"]
 [ext_resource type="PackedScene" uid="uid://d00h0posy3hnu" path="res://AnswerManager/answer_manager.tscn" id="2_70fva"]
 [ext_resource type="Texture2D" uid="uid://dxu7bjqj8tonk" path="res://Assets/Border.png" id="3_2h3fc"]
 [ext_resource type="PackedScene" uid="uid://c6aastqpgo2mj" path="res://Wrongs/wrongs.tscn" id="3_7yu0s"]
 [ext_resource type="Texture2D" uid="uid://dtkips4bg63td" path="res://Assets/Border_small.png" id="4_61033"]
+[ext_resource type="PackedScene" uid="uid://rwp1oa7cpx70" path="res://FastMoneyManager/fast_money_manager.tscn" id="6_dhqy4"]
 
 [node name="Root" type="Control"]
 layout_mode = 3
@@ -14,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cijje")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -24,21 +26,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0666667, 0.172549, 0.65098, 1)
-
-[node name="REf" type="TextureRect" parent="CanvasLayer"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -520.0
-offset_top = -326.0
-offset_right = 514.0
-offset_bottom = 433.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_7db5n")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -87,6 +74,18 @@ texture = ExtResource("4_61033")
 expand_mode = 1
 
 [node name="AnswerManager" parent="CanvasLayer" instance=ExtResource("2_70fva")]
+unique_name_in_owner = true
+
+[node name="FastMoneyManager" parent="CanvasLayer" instance=ExtResource("6_dhqy4")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_bottom = -20.0
 
 [node name="Wrongs" parent="CanvasLayer" instance=ExtResource("3_7yu0s")]
 offset_left = -18.0
