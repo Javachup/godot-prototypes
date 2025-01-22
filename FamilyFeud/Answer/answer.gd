@@ -46,6 +46,9 @@ func set_answer(answer: String, number: int):
 	real_answer.text = answer
 	real_number.text = str(number)
 
+	var new_size = remap(clamp(answer.length(), 6, 16), 16, 6, 15, 37)
+	real_answer.set("theme_override_font_sizes/font_size", new_size)
+
 func set_is_real(new_is_real: bool):
 	if new_is_real:
 		make_hidden()

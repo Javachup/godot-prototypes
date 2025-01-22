@@ -17,6 +17,8 @@ offset_right = 213.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.425, 1.425)
+pivot_offset = Vector2(213, 106)
 script = ExtResource("1_ae0rn")
 answers = [NodePath("Answer1"), NodePath("Answer2"), NodePath("Answer3"), NodePath("Answer4"), NodePath("Answer5"), NodePath("Answer6"), NodePath("Answer7"), NodePath("Answer8")]
 

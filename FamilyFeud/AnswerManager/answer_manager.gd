@@ -10,6 +10,8 @@ var last_loaded_path: String
 
 func _ready():
 	open_dialog()
+	for a in answers:
+		a.make_not_real()
 
 func _process(delta):
 	score_label.text = str(score)
