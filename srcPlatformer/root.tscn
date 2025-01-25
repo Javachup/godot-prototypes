@@ -8,13 +8,13 @@
 [node name="world" type="Node2D" parent="."]
 
 [node name="Player" parent="world" instance=ExtResource("1_ctvmj")]
-position = Vector2(-522, -191)
+position = Vector2(-536, -191)
 
 [node name="Camera2D" type="Camera2D" parent="world"]
 
 [node name="Wall" parent="world" instance=ExtResource("2_osqa0")]
 position = Vector2(-946, 146)
-polygon = PackedVector2Array(-84, -63, 222, -293, 709, -248, 751, 238, 16, 235)
+polygon = PackedVector2Array(-84, -63, 222, -293, 734, -255, 751, 238, 16, 235)
 
 [node name="Wall2" parent="world" instance=ExtResource("2_osqa0")]
 position = Vector2(-420, 324)

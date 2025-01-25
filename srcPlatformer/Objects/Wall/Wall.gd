@@ -1,7 +1,7 @@
 class_name Wall
 extends Polygon2D
 
-@onready var collision_shape_2d = %CollisionShape2D
+@onready var collision_polygon_2d = %CollisionPolygon2D
 
 func _ready():
-	collision_shape_2d.shape.points = polygon
+	collision_polygon_2d.polygon = polygon

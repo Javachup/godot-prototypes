@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
 
-const SPEED = 120.0
-const JUMP_VELOCITY = -150.0
-const GRAVITY_MULTIPLIER = 0.4
-
 const JUMP_KEY = KEY_SPACE
 const LEFT_KEY = KEY_A
 const RIGHT_KEY = KEY_D
+
+@export_group("Player Vars")
+@export var speed := 300.0
+@export var jump_velocity = 150.0
+## Weaker gravity when going up and pressing jump
+@export_range(0,1) var gravity_multiplier = 0.4
 
 @onready var coyote_timer = %CoyoteTimer
 
@@ -20,21 +22,21 @@ func _physics_process(delta):
 	if not is_on_floor():
 		var grav = gravity
 		if velocity.y < 0 and Input.is_key_pressed(JUMP_KEY):
-			grav *= GRAVITY_MULTIPLIER
+			grav *= gravity_multiplier
 		velocity.y += grav * delta
 	else: coyote_timer.start()
 
 	# Handle jump.
 	if Input.is_key_pressed(JUMP_KEY) and not coyote_timer.is_stopped():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = -jump_velocity
 
 	# Get the input direction and handle the movement/deceleration.
 	var left = float(Input.is_key_pressed(LEFT_KEY))
 	var right = float(Input.is_key_pressed(RIGHT_KEY))
 	var direction = right - left
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()

@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://diq480kerq681"]
+[gd_scene load_steps=2 format=3 uid="uid://diq480kerq681"]
 
 [ext_resource type="Script" path="res://Objects/Wall/Wall.gd" id="1_kji2l"]
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_i5srt"]
 
 [node name="Wall" type="Polygon2D"]
 polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
@@ -11,6 +9,5 @@ script = ExtResource("1_kji2l")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 unique_name_in_owner = true
-shape = SubResource("ConvexPolygonShape2D_i5srt")
