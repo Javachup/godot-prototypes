@@ -1,27 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://otixf6thrwrm"]
+[gd_scene load_steps=3 format=3 uid="uid://otixf6thrwrm"]
 
 [ext_resource type="PackedScene" uid="uid://bd57d7g27nh71" path="res://Objects/player/player.tscn" id="1_ctvmj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kvj5"]
-size = Vector2(352, 34)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6m7qb"]
-size = Vector2(346, 34)
+[ext_resource type="PackedScene" uid="uid://diq480kerq681" path="res://Objects/Wall/Wall.tscn" id="2_osqa0"]
 
 [node name="root" type="Node"]
 
 [node name="world" type="Node2D" parent="."]
 
 [node name="Player" parent="world" instance=ExtResource("1_ctvmj")]
+position = Vector2(-522, -191)
 
 [node name="Camera2D" type="Camera2D" parent="world"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="world"]
-position = Vector2(0, 145)
-collision_layer = 2
+[node name="Wall" parent="world" instance=ExtResource("2_osqa0")]
+position = Vector2(-946, 146)
+polygon = PackedVector2Array(-84, -63, 222, -293, 709, -248, 751, 238, 16, 235)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world/StaticBody2D"]
-shape = SubResource("RectangleShape2D_3kvj5")
+[node name="Wall2" parent="world" instance=ExtResource("2_osqa0")]
+position = Vector2(-420, 324)
+polygon = PackedVector2Array(136, -148, 671, -147, 687, 215, 83, 206)
 
-[node name="Sprite2D" type="Sprite2D" parent="world/StaticBody2D"]
-texture = SubResource("PlaceholderTexture2D_6m7qb")
+[node name="Wall3" parent="world" instance=ExtResource("2_osqa0")]
+position = Vector2(54, 161)
+polygon = PackedVector2Array(136, -148, 671, -147, 687, 215, 83, 206)
