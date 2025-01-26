@@ -1,5 +1,5 @@
+class_name Player
 extends CharacterBody2D
-
 
 const JUMP_KEY = KEY_SPACE
 const LEFT_KEY = KEY_A
@@ -14,9 +14,14 @@ const RIGHT_KEY = KEY_D
 
 @onready var coyote_timer = %CoyoteTimer
 
+@onready var starting_pos = position
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func die():
+	print("Ah!")
+	position = starting_pos
 
 func _physics_process(delta):
 	# Add the gravity.
