@@ -10,6 +10,7 @@ const RIGHT_KEY = KEY_D
 @export var jump_velocity = 150.0
 ## Weaker gravity when going up and pressing jump
 @export_range(0,1) var gravity_multiplier = 0.4
+@export_range(0,1) var accel = 0.4
 
 @onready var coyote_timer = %CoyoteTimer
 
@@ -33,10 +34,8 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	var left = float(Input.is_key_pressed(LEFT_KEY))
 	var right = float(Input.is_key_pressed(RIGHT_KEY))
-	var direction = right - left
-	if direction:
-		velocity.x = direction * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+	var target_velocity = (right - left) * speed
+
+	velocity.x = lerp(velocity.x, target_velocity, accel)
 
 	move_and_slide()

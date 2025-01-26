@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ud7pyum2w6ac"]
+
+[node name="Code" type="TextEdit"]
+offset_right = 204.0
+offset_bottom = 101.0
+size_flags_horizontal = 3
+text = "1		OnCollide(other):
+2			if other is Player:
+3				other.kill()"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false

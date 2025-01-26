@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://otixf6thrwrm"]
+[gd_scene load_steps=4 format=3 uid="uid://otixf6thrwrm"]
 
 [ext_resource type="PackedScene" uid="uid://bd57d7g27nh71" path="res://Objects/player/player.tscn" id="1_ctvmj"]
 [ext_resource type="PackedScene" uid="uid://diq480kerq681" path="res://Objects/Wall/Wall.tscn" id="2_osqa0"]
+[ext_resource type="PackedScene" uid="uid://ud7pyum2w6ac" path="res://Objects/Code/code.tscn" id="3_yrfv7"]
 
 [node name="root" type="Node"]
 
@@ -15,14 +16,59 @@ gravity_multiplier = 0.6
 
 [node name="Camera2D" type="Camera2D" parent="world"]
 
-[node name="Wall" parent="world" instance=ExtResource("2_osqa0")]
+[node name="Walls" type="Node2D" parent="world"]
+
+[node name="Wall" parent="world/Walls" instance=ExtResource("2_osqa0")]
 position = Vector2(-946, 146)
+color = Color(0.97, 0.47821, 0.2134, 1)
 polygon = PackedVector2Array(-84, -63, 222, -293, 734, -255, 751, 238, 16, 235)
 
-[node name="Wall2" parent="world" instance=ExtResource("2_osqa0")]
+[node name="Wall2" parent="world/Walls" instance=ExtResource("2_osqa0")]
 position = Vector2(-420, 324)
+color = Color(0.97, 0.47821, 0.2134, 1)
 polygon = PackedVector2Array(136, -148, 671, -147, 687, 215, 83, 206)
 
-[node name="Wall3" parent="world" instance=ExtResource("2_osqa0")]
+[node name="Wall3" parent="world/Walls" instance=ExtResource("2_osqa0")]
 position = Vector2(54, 161)
-polygon = PackedVector2Array(136, -148, 671, -147, 687, 215, 83, 206)
+color = Color(0.97, 0.47821, 0.2134, 1)
+polygon = PackedVector2Array(94, -148, 671, -147, 687, 215, 83, 206)
+
+[node name="Wall4" parent="world/Walls" instance=ExtResource("2_osqa0")]
+position = Vector2(-873, -253)
+color = Color(0.97, 0.47821, 0.2134, 1)
+polygon = PackedVector2Array(284, 156, 280, -280, -40, -268, -44, 334)
+
+[node name="Wall5" parent="world/Walls" instance=ExtResource("2_osqa0")]
+position = Vector2(-115, -455)
+color = Color(0.97, 0.47821, 0.2134, 1)
+polygon = PackedVector2Array(-488, 120, 800, 104, 748, -146, -576, -124)
+
+[node name="Wall6" parent="world/Walls" instance=ExtResource("2_osqa0")]
+position = Vector2(659, -373)
+color = Color(0.97, 0.47821, 0.2134, 1)
+polygon = PackedVector2Array(-94, -32, -46, 562, 328, 422, 254, -132)
+
+[node name="Goal Code" parent="world" instance=ExtResource("3_yrfv7")]
+offset_left = -108.0
+offset_top = 199.0
+offset_right = 96.0
+offset_bottom = 300.0
+
+[node name="PlayerCode" parent="world" instance=ExtResource("3_yrfv7")]
+offset_left = -551.0
+offset_top = -95.0
+offset_right = -279.0
+offset_bottom = 33.0
+text = "1		Input(key):
+2			if key == 'a': move_left()
+4			if key == 'd': move_right()
+5			if key == ' ': jump()"
+
+[node name="SpikesCode" parent="world" instance=ExtResource("3_yrfv7")]
+offset_left = 236.0
+offset_top = 38.0
+offset_right = 440.0
+offset_bottom = 139.0
+text = "1		OnCollide(other):
+2			if other is Player:
+3				win()"
